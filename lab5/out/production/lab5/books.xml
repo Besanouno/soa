@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+    <book>
+        <author>E. Hemingway</author>
+        <title lang="PL">Stary człowiek</title>
+        <isbn>123</isbn>
+    </book>
+    <book>
+        <author>Bruce Eckel</author>
+        <title lang="ENG">Thinking in java</title>
+        <isbn>321</isbn>
+    </book>
+    <book>
+        <author>Jerzy Dudek</author>
+        <author>Jan Kowalski</author>
+        <title lang="PL">tytuł</title>
+        <title lang="ENG">title</title>
+        <isbn>555</isbn>
+    </book>
+    <book>
+        <author>Ja</author>
+        <author>On</author>
+        <title lang="PL">Polska</title>
+        <title lang="ENG">Poland</title>
+        <isbn>isbn</isbn>
+    </book>
+</books>
