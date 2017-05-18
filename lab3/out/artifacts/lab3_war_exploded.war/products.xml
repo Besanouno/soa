@@ -1,0 +1,18 @@
+<computerParts>
+    <part id="12">
+        <name>Monitor LCD</name>
+        <price>450</price>
+    </part>
+    <part id="33">
+        <name>Klawiatura</name>
+        <price>80</price>
+    </part>
+    <part id="1">
+        <name>Mysz</name>
+        <price>20</price>
+    </part>
+    <part id="11">
+        <name>Zasilacz</name>
+        <price>100</price>
+    </part>
+</computerParts>

@@ -1,0 +1,12 @@
+pl/basistam/movies/Movie.class
+pl/basistam/movies/Movies.class
+pl/basistam/login/ActiveUsers.class
+pl/basistam/beer/BeerChoice.class
+pl/basistam/login/User.class
+pl/basistam/beer/model/BeerExpert.class
+pl/basistam/beer/AgeFilter.class
+pl/basistam/users/UsersController.class
+pl/basistam/shop/Basket.class
+pl/basistam/login/UsersRepository.class
+pl/basistam/login/Session.class
+pl/basistam/login/LoginController.class
