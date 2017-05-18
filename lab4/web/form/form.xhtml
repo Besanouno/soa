@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Formularz</title>
+</h:head>
+<h:body>
+<h:form>
+    <h1>Podaj swoje dane osobowe!</h1>
+    Imię
+    <h:inputText value="#{user.firstName}" required="false"/><br/>
+    Nazwisko
+    <h:inputText id="lastName" value="#{user.lastName}" required="true" requiredMessage="Podaj nazwisko"/>
+    <h:message for="lastName" style="color:red" /><br/>
+    Wiek
+    <h:inputText id="age" value="#{user.age}" required="true" requiredMessage="Podaj wiek" validatorMessage=" Podany wiek jest niepoprawny!">
+        <f:convertNumber integerOnly="true"/>
+        <f:validateLongRange minimum="0" maximum="120"/>
+    </h:inputText>
+    <h:message for="age" style="color:red" /><br/>
+    Płeć
+    <h:selectOneRadio id="sex" value="#{user.sex}" required="true" requiredMessage="Podaj plec!">
+        <f:selectItem itemValue="mezczyzna" itemLabel="Mężczyzna"/>
+        <f:selectItem itemValue="kobieta" itemLabel="Kobieta"/>
+    </h:selectOneRadio>
+    <h:message for="sex" style="color:red" /><br/>
+    Województwo
+    <h:selectOneMenu id="province" value="#{user.province}">
+        <f:selectItem itemLabel="wybierz"/>
+        <f:selectItem itemValue="Malopolskie" itemLabel="Małopolskie"/>
+        <f:selectItem itemValue="Mazowieckie" itemLabel="Mazowieckie"/>
+        <f:selectItem itemValue="Wielkopolskie" itemLabel="Wielkopolskie"/>
+        <f:ajax render="confirmButton"/>
+    </h:selectOneMenu>
+    <br/>
+    <br/>
+    <h:commandButton id="confirmButton" disabled="#{empty user.province}" type="submit" value="Potwierdz" action="result.xhtml"/>
+</h:form>
+</h:body>
+</html>
