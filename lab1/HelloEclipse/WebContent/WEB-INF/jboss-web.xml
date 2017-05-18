@@ -1,0 +1,3 @@
+<jboss-web>
+<context-root>/HelloEclipse</context-root>
+</jboss-web>

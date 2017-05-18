@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HelloIdea">
+    <output-path>$PROJECT_DIR$/../../../wildfly-10.1.0.Final/standalone/deployments</output-path>
+    <root id="archive" name="HelloIdea.war">
+      <element id="javaee-facet-resources" facet="HelloWorld/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="HelloWorld" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
