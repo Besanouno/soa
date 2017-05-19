@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<books>
+    <book>
+        <id>1</id>
+        <authors>Ernest Hemingway</authors>
+        <isbn>123</isbn>
+        <state>RESERVED</state>
+    </book>
+    <book>
+        <id>2</id>
+        <authors>Jan Brzechwa</authors>
+        <isbn>22</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <id>3</id>
+        <authors>Bruce Eckel</authors>
+        <isbn>444</isbn>
+        <state>RESERVED</state>
+    </book>
+    <book>
+        <id>4</id>
+        <authors>Magdalena Kordel</authors>
+        <isbn>33</isbn>
+        <state>LOANED</state>
+    </book>
+</books>

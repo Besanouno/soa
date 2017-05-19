@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="converter-ejb">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../ConverterEjb/target/converter-ejb.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

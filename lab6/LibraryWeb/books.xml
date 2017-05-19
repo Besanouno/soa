@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<books>
+    <book>
+	<id>1</id>
+        <authors>Ernest Hemingway</authors>
+        <title>Stary człowiek i morze</title>
+        <isbn>123</isbn>
+	<state>IDLE</state>
+    </book>
+    <book>
+	<id>2</id>
+        <authors>Jan Brzechwa</authors>  
+        <title>Bajki zebrane</title>
+        <isbn>22</isbn>
+	<state>RESERVED</state>
+    </book>
+    <book>
+	<id>3</id>
+        <authors>Bruce Eckel</authors> 
+        <title>Thinking in Java</title>
+        <isbn>444</isbn>
+	<state>RESERVED</state>
+    </book>
+    <book>
+	<id>4</id>
+        <authors>Magdalena Kordel</authors>
+        <title>Córka wiatrów</title>  
+        <isbn>33</isbn>
+	<state>LOANED</state>
+    </book> 
+</books>
