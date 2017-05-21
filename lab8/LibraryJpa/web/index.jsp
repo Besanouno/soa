@@ -18,7 +18,6 @@
 <jsp:useBean id="library" class="pl.basistam.service.LibraryService" scope="application"/>
 
 <%
-    String x = (String) request.getAttribute("id");
     if ("POST".equals(request.getMethod())) {
         if (request.getParameter("delete") != null) {
             library.delete(Long.parseLong(request.getParameter("delete")));
@@ -37,8 +36,7 @@
         }
     }
 %>
-
-<%= x %>
+ 
 <table border="1">
     <tr>
         <th>Tytuł</th>
