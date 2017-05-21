@@ -1,27 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <books>
     <book>
-        <id>1</id>
         <authors>Ernest Hemingway</authors>
+        <titles lang="pol">Stary człowiek i morze</titles>
         <isbn>123</isbn>
-        <state>RESERVED</state>
-    </book>
-    <book>
-        <id>2</id>
-        <authors>Jan Brzechwa</authors>
-        <isbn>22</isbn>
         <state>IDLE</state>
     </book>
     <book>
-        <id>3</id>
+        <authors>Jan Brzechwa</authors>
+        <titles lang="pol">Bajki zebrane</titles>
+        <isbn>22</isbn>
+        <state>RESERVED</state>
+    </book>
+    <book>
         <authors>Bruce Eckel</authors>
+        <titles lang="eng">Thinking in java</titles>
         <isbn>444</isbn>
         <state>RESERVED</state>
     </book>
     <book>
-        <id>4</id>
         <authors>Magdalena Kordel</authors>
+        <titles lang="pol">Costam</titles>
+        <titles lang="fr">Paris</titles>
         <isbn>33</isbn>
         <state>LOANED</state>
     </book>
+    <book>
+        <authors>Ktos</authors>
+        <titles lang="ang">tytu</titles>
+        <isbn>231</isbn>
+        <state>RESERVED</state>
+    </book>
+    <book>
+        <authors>Jan Nowak</authors>
+        <titles lang="PL">CoÅ tam coÅ tamm</titles>
+        <isbn>3333</isbn>
+        <state>IDLE</state>
+    </book> 
 </books>

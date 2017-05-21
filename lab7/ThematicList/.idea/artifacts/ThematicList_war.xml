@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ThematicList:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="thematic-list.war">
+      <element id="artifact" artifact-name="ThematicList:war exploded" />
+    </root>
+  </artifact>
+</component>

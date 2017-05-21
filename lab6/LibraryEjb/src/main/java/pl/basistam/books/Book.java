@@ -6,21 +6,12 @@ import java.io.Serializable;
 import java.util.List;
 
 @XmlRootElement(name = "book")
-@XmlType(propOrder = {"id", "authors", "titles", "isbn", "state"})
+@XmlType(propOrder = {"authors", "titles", "isbn", "state"})
 public class Book implements Serializable {
-    private Long id;
     private List<String> authors;
     private List<Title> titles;
     private String isbn;
     private State state;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
 
     public List<String> getAuthors() {
         return authors;

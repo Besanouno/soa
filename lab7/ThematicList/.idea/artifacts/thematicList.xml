@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="thematicList">
+    <output-path>$PROJECT_DIR$/out/artifacts/thematicList</output-path>
+    <root id="archive" name="thematicList.war">
+      <element id="javaee-facet-resources" facet="ThematicList/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ThematicList" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

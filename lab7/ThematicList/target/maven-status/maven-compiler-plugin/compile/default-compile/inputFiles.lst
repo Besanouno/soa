@@ -1,0 +1,7 @@
+/home/marcin/Documents/soa/lab7/ThematicList/src/main/java/pl/basistam/beans/ThematicListBean.java
+/home/marcin/Documents/soa/lab7/ThematicList/src/main/java/pl/basistam/beans/SubjectBean.java
+/home/marcin/Documents/soa/lab7/ThematicList/src/main/java/pl/basistam/beans/MessageSenderBean.java
+/home/marcin/Documents/soa/lab7/ThematicList/src/main/java/pl/basistam/beans/Subjects.java
+/home/marcin/Documents/soa/lab7/ThematicList/src/main/java/pl/basistam/jms/MessageSender.java
+/home/marcin/Documents/soa/lab7/ThematicList/src/main/java/pl/basistam/jms/JMSMessageProperties.java
+/home/marcin/Documents/soa/lab7/ThematicList/src/main/java/pl/basistam/jms/JMSMessageSender.java

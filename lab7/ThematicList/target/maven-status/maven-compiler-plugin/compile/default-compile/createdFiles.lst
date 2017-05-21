@@ -1,0 +1,7 @@
+pl/basistam/beans/ThematicListBean.class
+pl/basistam/jms/JMSMessageSender.class
+pl/basistam/jms/JMSMessageProperties.class
+pl/basistam/beans/SubjectBean.class
+pl/basistam/jms/MessageSender.class
+pl/basistam/beans/MessageSenderBean.class
+pl/basistam/beans/Subjects.class

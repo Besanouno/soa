@@ -28,9 +28,9 @@ public class LibraryImpl implements Library {
 
     @Override
     @Lock(WRITE)
-    public void changeBookState(Long id, State state) {
+    public void changeBookState(String isbn, State state) {
         books.stream()
-                .filter(b -> Objects.equals(b.getId(), id))
+                .filter(b -> Objects.equals(b.getIsbn(), isbn))
                 .forEach(b -> b.setState(state));
         register.saveBooks(books);
     }
@@ -41,4 +41,10 @@ public class LibraryImpl implements Library {
         return books.stream().filter(b -> b.getState() == state).collect(Collectors.toList());
     }
 
+    @Override
+    @Lock(WRITE)
+    public void addBook(Book book) {
+        books.add(book);
+        register.saveBooks(books);
+    }
 }

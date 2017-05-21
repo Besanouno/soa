@@ -48,10 +48,10 @@
             <th><c:out value="${book.isbn}"/></th>
             <form method=post action="index.jsp">
                 <th>
-                    <button name="reserve" value="${book.id}" type="submit">Zarezerwuj</button>
+                    <button name="reserve" value="${book.isbn}" type="submit">Zarezerwuj</button>
                 </th>
                 <th>
-                    <button name="loan" value="${book.id}" type="submit">Wypożycz</button>
+                    <button name="loan" value="${book.isbn}" type="submit">Wypożycz</button>
                 </th>
             </form>
         </tr>
@@ -81,10 +81,10 @@
             <th><c:out value="${book.isbn}"/></th>
             <form method=post action="index.jsp">
                 <th>
-                    <button name="return" value="${book.id}" type="submit">Anuluj</button>
+                    <button name="return" value="${book.isbn}" type="submit">Anuluj</button>
                 </th>
                 <th>
-                    <button name="loan" value="${book.id}" type="submit">Wypożycz</button>
+                    <button name="loan" value="${book.isbn}" type="submit">Wypożycz</button>
                 </th>
             </form>
         </tr>
@@ -113,7 +113,7 @@
             <th><c:out value="${book.isbn}"/></th>
             <form method=post action="index.jsp">
                 <th>
-                    <button name="return" value="${book.id}" type="submit">Zwróć</button>
+                    <button name="return" value="${book.isbn}" type="submit">Zwróć</button>
                 </th>
             </form>
         </tr>

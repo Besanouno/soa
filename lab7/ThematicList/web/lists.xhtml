@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:c="http://java.sun.com/jsp/jstl/core" xml:lang="en" lang="en">
+
+<h:head>
+    <title>Forum</title>
+</h:head>
+<h:body>
+    <h:form>
+        Tematy:
+        <br/><br/>
+        <c:forEach items="#{thematicListBean.subjects}" var="subject">
+            <h:outputLabel value="#{subject}"/><br/>
+            Wiadomość: <h:inputText value="#{messageSenderBean.message}"/>
+            Odbiorca: <h:inputText value="#{messageSenderBean.receiver}"/>
+            <h:commandButton value="Wyślij" action="#{messageSenderBean.send(subject)}"/>
+            <br/>
+        </c:forEach>
+        <hr/>
+
+        <h:outputLabel value="Dodaj nowy temat   "/>
+        <h:inputText value="#{subjectBean.subject}"/>
+        <h:commandButton value="Dodaj" actionListener="#{subjectBean.add}"/>
+    </h:form>
+</h:body>
+</html>

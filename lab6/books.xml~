@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<books>
+    <book>
+        <authors>Ernest Hemingway</authors>
+        <titles lang="pol">Stary człowiek i morze</titles>
+        <isbn>123</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>Jan Brzechwa</authors>
+        <titles lang="pol">Bajki zebrane</titles>
+        <isbn>22</isbn>
+        <state>RESERVED</state>
+    </book>
+    <book>
+        <authors>Bruce Eckel</authors>
+        <titles lang="eng">Thinking in java</titles>
+        <isbn>444</isbn>
+        <state>RESERVED</state>
+    </book>
+    <book>
+        <authors>Magdalena Kordel</authors>
+        <titles lang="pol">Costam</titles>
+        <titles lang="fr">Paris</titles>
+        <isbn>33</isbn>
+        <state>LOANED</state>
+    </book>
+    <book>
+        <authors>Ktos</authors>
+        <titles lang="ang">tytu</titles>
+        <isbn>231</isbn>
+        <state>RESERVED</state>
+    </book>
+    <book>
+        <authors>Jan Nowak</authors>
+        <titles lang="PL">CoÅ tam coÅ tamm</titles>
+        <isbn>3333</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>sgf</authors>
+        <titles lang="dgf">fdg</titles>
+        <isbn>dfg</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>tyr</authors>
+        <titles lang="ytr">ytr</titles>
+        <isbn>ytr</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>123</authors>
+        <titles lang="123">123</titles>
+        <isbn>123</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>fds</authors>
+        <titles lang="fsd">sfd</titles>
+        <isbn>sfd</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>fdssfd</authors>
+        <titles lang="sfdsfd">sfdsfd</titles>
+        <isbn>sfdsfdsfd</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>4324</authors>
+        <titles lang="342423">342432</titles>
+        <isbn>432342</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>tre</authors>
+        <titles lang="ert">etr</titles>
+        <isbn>ert</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>fsd</authors>
+        <titles lang="sfd">fsd</titles>
+        <isbn>sfdfsd</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>3213</authors>
+        <titles lang="123">132</titles>
+        <isbn>312132123</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>ds</authors>
+        <titles lang="sdsd">ds</titles>
+        <isbn>dssds</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>qwe</authors>
+        <titles lang="qwe">qew</titles>
+        <isbn>qew</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>asd</authors>
+        <titles lang=""></titles>
+        <isbn></isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>123</authors>
+        <titles lang=""></titles>
+        <isbn>123</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>123123</authors>
+        <titles lang=""></titles>
+        <isbn>12</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>cc</authors>
+        <titles lang=""></titles>
+        <isbn></isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>cvb</authors>
+        <titles lang=""></titles>
+        <isbn></isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>GOs</authors>
+        <titles lang=""></titles>
+        <isbn></isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>vxc</authors>
+        <titles lang="">xcv</titles>
+        <isbn></isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors></authors>
+        <titles lang="">231132</titles>
+        <isbn>321</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>dassdasd</authors>
+        <titles lang=""></titles>
+        <isbn>asd</isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors></authors>
+        <titles lang="">ads</titles>
+        <isbn></isbn>
+        <state>IDLE</state>
+    </book>
+    <book>
+        <authors>sdsad</authors>
+        <titles lang=""></titles>
+        <isbn>sad</isbn>
+        <state>IDLE</state>
+    </book>
+</books>

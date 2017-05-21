@@ -34,25 +34,25 @@ public class LibraryBean {
         return library.getBooks(State.IDLE);
     }
 
-    public void reserveBook(String id) {
+    public void reserveBook(String isbn) {
         try {
-            library.changeBookState(Long.parseLong(id), State.RESERVED);
+            library.changeBookState(isbn, State.RESERVED);
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
     }
 
-    public void loanBook(String id) {
+    public void loanBook(String isbn) {
         try {
-            library.changeBookState(Long.parseLong(id), State.LOANED);
+            library.changeBookState(isbn, State.LOANED);
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
     }
 
-    public void returnBook(String id) {
+    public void returnBook(String isbn) {
         try {
-            library.changeBookState(Long.parseLong(id), State.IDLE);
+            library.changeBookState(isbn, State.IDLE);
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
