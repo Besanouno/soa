@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://service.basistam.pl/" xmlns:tns="http://service.basistam.pl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="getDaysLastToHolidays" type="tns:getDaysLastToHolidays"/>
+
+  <xs:element name="getDaysLastToHolidaysResponse" type="tns:getDaysLastToHolidaysResponse"/>
+
+  <xs:complexType name="getDaysLastToHolidays">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getDaysLastToHolidaysResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
