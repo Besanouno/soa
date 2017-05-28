@@ -4,13 +4,13 @@
         <authors>Ernest Hemingway</authors>
         <titles lang="pol">Stary człowiek i morze</titles>
         <isbn>123</isbn>
-        <state>IDLE</state>
+        <state>LOANED</state>
     </book>
     <book>
         <authors>Jan Brzechwa</authors>
         <titles lang="pol">Bajki zebrane</titles>
         <isbn>22</isbn>
-        <state>RESERVED</state>
+        <state>IDLE</state>
     </book>
     <book>
         <authors>Bruce Eckel</authors>
@@ -23,18 +23,18 @@
         <titles lang="pol">Costam</titles>
         <titles lang="fr">Paris</titles>
         <isbn>33</isbn>
-        <state>LOANED</state>
+        <state>IDLE</state>
     </book>
     <book>
         <authors>Ktos</authors>
         <titles lang="ang">tytu</titles>
         <isbn>231</isbn>
-        <state>RESERVED</state>
+        <state>LOANED</state>
     </book>
     <book>
         <authors>Jan Nowak</authors>
         <titles lang="PL">CoÅ tam coÅ tamm</titles>
         <isbn>3333</isbn>
-        <state>IDLE</state>
-    </book> 
+        <state>LOANED</state>
+    </book>
 </books>

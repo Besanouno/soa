@@ -61,8 +61,7 @@ public class LibraryBean {
     private Library lookupLibraryEjb() throws NamingException {
         final Hashtable<String, String> jndiProperties = new Hashtable<String, String>();
         jndiProperties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
-        jndiProperties.put(InitialContext.PROVIDER_URL, "remote://localhost:4447");
         final Context context = new InitialContext(jndiProperties);
-        return (Library) context.lookup("java:app/library/LibraryImpl!pl.basistam.ejb.Library");
+        return (Library) context.lookup("ejb:/library-ejb/LibraryImpl!pl.basistam.ejb.Library");
     }
 }

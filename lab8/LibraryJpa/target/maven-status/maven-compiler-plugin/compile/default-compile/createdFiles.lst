@@ -1,0 +1,6 @@
+pl/basistam/service/LibraryDAO.class
+pl/basistam/service/BookSaver.class
+pl/basistam/service/LibraryService.class
+pl/basistam/model/Book.class
+pl/basistam/model/Book$BookBuilder.class
+pl/basistam/service/Library.class

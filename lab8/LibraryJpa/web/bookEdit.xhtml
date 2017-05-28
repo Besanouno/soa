@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xml:lang="en" lang="en">
+<h:head>
+    <title>Zapisz książkę</title>
+</h:head>
+<h:body>
+    <h:form>
+        Tytuł*: <h:inputText name="title" required="true" value="#{bookSaver.title}"/><br/>
+        Autor*: <h:inputText name="author" required="true" value="#{bookSaver.author}"/><br/>
+        Rok wydania*: <h:inputText name="year" required="true" value="#{bookSaver.year}"
+                                  converterMessage="Podaj liczbę!" validatorMessage="Podałeś błędną wartość!">
+        <f:convertNumber integerOnly="true"/>
+        </h:inputText><br/>
+        Isbn*: <h:inputText name="isbn" required="true" value="#{bookSaver.isbn}"/><br/>
+        Cena*: <h:inputText name="price" required="true" value="#{bookSaver.price}"
+                           converterMessage="Podaj liczbę!" validatorMessage="Podałeś błędną wartość!">
+        <f:convertNumber integerOnly="true"/>
+        </h:inputText>
+        <br/>
+        <h:inputHidden name="id" value="#{bookSaver.id}"/>
+
+        <h:commandButton action="#{bookSaver.save}" value="Zapisz"/>
+    </h:form>
+</h:body>
+</html>
