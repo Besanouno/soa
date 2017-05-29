@@ -1,5 +1,8 @@
-pl/basistam/soa/main/model/Parking.class
 pl/basistam/soa/main/model/ParkingSpot.class
 pl/basistam/soa/main/WrongParkingSpotNumberException.class
 pl/basistam/soa/main/webService/ParkingSensorsService.class
+pl/basistam/soa/main/webService/ParkometrService.class
+pl/basistam/soa/main/dto/TicketDTO.class
 pl/basistam/soa/main/model/Area.class
+pl/basistam/soa/main/dto/TicketDTO$TicketDTOBuilder.class
+pl/basistam/soa/main/model/Parking.class

@@ -27,7 +27,7 @@
     <bytecodeTargetLevel>
       <module name="MainSystem" target="1.8" />
       <module name="ParkingSpaceSensor" target="1.8" />
-      <module name="Parkometr" target="1.5" />
+      <module name="Parkometr" target="1.8" />
       <module name="Project" target="1.5" />
     </bytecodeTargetLevel>
   </component>

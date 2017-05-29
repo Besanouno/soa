@@ -23,4 +23,11 @@ class ParkingSpot {
         timeOfParking = LocalDateTime.now();
         return true;
     }
+
+    public void release() {
+        available = true;
+        timeOfParking = null;
+        timeOfTicketExpiration = null;
+        timeOfTicketPurchase = null;
+    }
 }
