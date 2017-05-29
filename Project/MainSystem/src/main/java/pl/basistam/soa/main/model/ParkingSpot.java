@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 class ParkingSpot {
-    private boolean available;
+    private boolean available = true;
     private LocalDateTime timeOfParking;
     private LocalDateTime timeOfTicketPurchase;
     private LocalDateTime timeOfTicketExpiration;

@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+      <entry name="*?.class" />
+    </wildcardResourcePatterns>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
@@ -14,7 +26,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="MainSystem" target="1.8" />
-      <module name="ParkingSpaceSensor" target="1.5" />
+      <module name="ParkingSpaceSensor" target="1.8" />
       <module name="Parkometr" target="1.5" />
       <module name="Project" target="1.5" />
     </bytecodeTargetLevel>
