@@ -33,6 +33,24 @@ public interface ParkingSensorsService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "releaseParkingSpot", targetNamespace = "http://webService.main.soa.basistam.pl/", className = "pl.basistam.soa.parkingSpaceSensor.client.ReleaseParkingSpot")
+    @ResponseWrapper(localName = "releaseParkingSpotResponse", targetNamespace = "http://webService.main.soa.basistam.pl/", className = "pl.basistam.soa.parkingSpaceSensor.client.ReleaseParkingSpotResponse")
+    @Action(input = "http://webService.main.soa.basistam.pl/ParkingSensorsService/releaseParkingSpotRequest", output = "http://webService.main.soa.basistam.pl/ParkingSensorsService/releaseParkingSpotResponse")
+    public boolean releaseParkingSpot(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        int arg1);
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "takeParkingSpot", targetNamespace = "http://webService.main.soa.basistam.pl/", className = "pl.basistam.soa.parkingSpaceSensor.client.TakeParkingSpot")
     @ResponseWrapper(localName = "takeParkingSpotResponse", targetNamespace = "http://webService.main.soa.basistam.pl/", className = "pl.basistam.soa.parkingSpaceSensor.client.TakeParkingSpotResponse")
     @Action(input = "http://webService.main.soa.basistam.pl/ParkingSensorsService/takeParkingSpotRequest", output = "http://webService.main.soa.basistam.pl/ParkingSensorsService/takeParkingSpotResponse")

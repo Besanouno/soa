@@ -6,6 +6,12 @@
       <xsd:import namespace="http://webService.main.soa.basistam.pl/" schemaLocation="ParkingSensorsServicePortType_schema1.xsd"/>
     </xsd:schema>
   </types>
+  <message name="releaseParkingSpot">
+    <part name="parameters" element="tns:releaseParkingSpot"/>
+  </message>
+  <message name="releaseParkingSpotResponse">
+    <part name="parameters" element="tns:releaseParkingSpotResponse"/>
+  </message>
   <message name="takeParkingSpot">
     <part name="parameters" element="tns:takeParkingSpot"/>
   </message>
@@ -13,9 +19,13 @@
     <part name="parameters" element="tns:takeParkingSpotResponse"/>
   </message>
   <portType name="ParkingSensorsService">
+    <operation name="releaseParkingSpot">
+      <input ns1:Action="http://webService.main.soa.basistam.pl/ParkingSensorsService/releaseParkingSpotRequest" message="tns:releaseParkingSpot" xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns2:Action="http://webService.main.soa.basistam.pl/ParkingSensorsService/releaseParkingSpotResponse" message="tns:releaseParkingSpotResponse" xmlns:ns2="http://www.w3.org/2007/05/addressing/metadata"/>
+    </operation>
     <operation name="takeParkingSpot">
-      <input ns1:Action="http://webService.main.soa.basistam.pl/ParkingSensorsService/takeParkingSpotRequest" message="tns:takeParkingSpot" xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns2:Action="http://webService.main.soa.basistam.pl/ParkingSensorsService/takeParkingSpotResponse" message="tns:takeParkingSpotResponse" xmlns:ns2="http://www.w3.org/2007/05/addressing/metadata"/>
+      <input ns3:Action="http://webService.main.soa.basistam.pl/ParkingSensorsService/takeParkingSpotRequest" message="tns:takeParkingSpot" xmlns:ns3="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns4:Action="http://webService.main.soa.basistam.pl/ParkingSensorsService/takeParkingSpotResponse" message="tns:takeParkingSpotResponse" xmlns:ns4="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
   </portType>
 </definitions>

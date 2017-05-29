@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" targetNamespace="http://webService.main.soa.basistam.pl/" xmlns:tns="http://webService.main.soa.basistam.pl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
+  <xs:element name="releaseParkingSpot" type="tns:releaseParkingSpot"/>
+
+  <xs:element name="releaseParkingSpotResponse" type="tns:releaseParkingSpotResponse"/>
+
   <xs:element name="takeParkingSpot" type="tns:takeParkingSpot"/>
 
   <xs:element name="takeParkingSpotResponse" type="tns:takeParkingSpotResponse"/>
+
+  <xs:complexType name="releaseParkingSpot">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="releaseParkingSpotResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
 
   <xs:complexType name="takeParkingSpot">
     <xs:sequence>

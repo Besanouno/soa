@@ -25,7 +25,9 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _TakeParkingSpot_QNAME = new QName("http://webService.main.soa.basistam.pl/", "takeParkingSpot");
+    private final static QName _ReleaseParkingSpot_QNAME = new QName("http://webService.main.soa.basistam.pl/", "releaseParkingSpot");
     private final static QName _TakeParkingSpotResponse_QNAME = new QName("http://webService.main.soa.basistam.pl/", "takeParkingSpotResponse");
+    private final static QName _ReleaseParkingSpotResponse_QNAME = new QName("http://webService.main.soa.basistam.pl/", "releaseParkingSpotResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: pl.basistam.soa.parkingSpaceSensor.client
@@ -40,6 +42,22 @@ public class ObjectFactory {
      */
     public TakeParkingSpotResponse createTakeParkingSpotResponse() {
         return new TakeParkingSpotResponse();
+    }
+
+    /**
+     * Create an instance of {@link ReleaseParkingSpotResponse }
+     * 
+     */
+    public ReleaseParkingSpotResponse createReleaseParkingSpotResponse() {
+        return new ReleaseParkingSpotResponse();
+    }
+
+    /**
+     * Create an instance of {@link ReleaseParkingSpot }
+     * 
+     */
+    public ReleaseParkingSpot createReleaseParkingSpot() {
+        return new ReleaseParkingSpot();
     }
 
     /**
@@ -60,12 +78,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReleaseParkingSpot }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webService.main.soa.basistam.pl/", name = "releaseParkingSpot")
+    public JAXBElement<ReleaseParkingSpot> createReleaseParkingSpot(ReleaseParkingSpot value) {
+        return new JAXBElement<ReleaseParkingSpot>(_ReleaseParkingSpot_QNAME, ReleaseParkingSpot.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TakeParkingSpotResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://webService.main.soa.basistam.pl/", name = "takeParkingSpotResponse")
     public JAXBElement<TakeParkingSpotResponse> createTakeParkingSpotResponse(TakeParkingSpotResponse value) {
         return new JAXBElement<TakeParkingSpotResponse>(_TakeParkingSpotResponse_QNAME, TakeParkingSpotResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReleaseParkingSpotResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webService.main.soa.basistam.pl/", name = "releaseParkingSpotResponse")
+    public JAXBElement<ReleaseParkingSpotResponse> createReleaseParkingSpotResponse(ReleaseParkingSpotResponse value) {
+        return new JAXBElement<ReleaseParkingSpotResponse>(_ReleaseParkingSpotResponse_QNAME, ReleaseParkingSpotResponse.class, null, value);
     }
 
 }

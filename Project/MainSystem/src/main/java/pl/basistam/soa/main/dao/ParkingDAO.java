@@ -15,5 +15,4 @@ public class ParkingDAO {
     public void saveTicket(Ticket ticket) {
         entityManager.persist(ticket);
     }
-
 }

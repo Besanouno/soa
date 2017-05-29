@@ -21,4 +21,13 @@ public class ParkingSensorsService {
             return false;
         }
     }
+
+    @WebMethod
+    public boolean releaseParkingSpot(int area, int parkingSpot) {
+        try {
+            return parking.releaseParkingSpot(area, parkingSpot);
+        } catch (WrongParkingSpotNumberException e) {
+            return false;
+        }
+    }
 }

@@ -18,9 +18,18 @@ public class Parking {
     }
 
     public boolean takeParkingSpot(int area, int parkingSpot) throws WrongParkingSpotNumberException {
+        checkArea(area);
+        return areas.get(area).takeParkingSpot(parkingSpot);
+    }
+
+    public boolean releaseParkingSpot(int area, int parkingSpot) throws WrongParkingSpotNumberException {
+        checkArea(area);
+        return areas.get(area).releaseParkingSpot(parkingSpot);
+    }
+
+    private void checkArea(int area) throws WrongParkingSpotNumberException {
         if (area < 0 || area >= areas.size()) {
             throw new WrongParkingSpotNumberException();
         }
-        return areas.get(area).takeParkingSpot(parkingSpot);
     }
 }

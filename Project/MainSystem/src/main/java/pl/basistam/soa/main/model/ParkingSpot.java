@@ -24,10 +24,11 @@ class ParkingSpot {
         return true;
     }
 
-    public void release() {
+    public boolean release() {
         available = true;
         timeOfParking = null;
         timeOfTicketExpiration = null;
         timeOfTicketPurchase = null;
+        return true;
     }
 }
