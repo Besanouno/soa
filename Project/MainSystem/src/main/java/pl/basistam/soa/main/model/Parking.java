@@ -10,6 +10,13 @@ import java.util.List;
 public class Parking {
     private List<Area> areas = new ArrayList<>();
 
+    public Parking() {
+        areas.add(new Area());
+        areas.add(new Area());
+        areas.add(new Area());
+        areas.add(new Area());
+    }
+
     public boolean takeParkingSpot(int area, int parkingSpot) throws WrongParkingSpotNumberException {
         if (area < 0 || area >= areas.size()) {
             throw new WrongParkingSpotNumberException();

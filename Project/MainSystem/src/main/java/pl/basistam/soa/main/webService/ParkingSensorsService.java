@@ -1,5 +1,6 @@
 package pl.basistam.soa.main.webService;
 
+import pl.basistam.soa.main.WrongParkingSpotNumberException;
 import pl.basistam.soa.main.model.Parking;
 
 import javax.inject.Inject;
@@ -13,7 +14,11 @@ public class ParkingSensorsService {
     private Parking parking;
 
     @WebMethod
-    public void takeParkingSpot(int area, int parkingSpot) {
-         
+    public boolean takeParkingSpot(int area, int parkingSpot) {
+        try {
+            return parking.takeParkingSpot(area, parkingSpot);
+        } catch (WrongParkingSpotNumberException e) {
+            return false;
+        }
     }
 }

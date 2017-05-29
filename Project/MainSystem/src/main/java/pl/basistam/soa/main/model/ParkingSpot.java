@@ -9,9 +9,18 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ParkingSpot {
+class ParkingSpot {
     private boolean available;
     private LocalDateTime timeOfParking;
     private LocalDateTime timeOfTicketPurchase;
     private LocalDateTime timeOfTicketExpiration;
+
+    public boolean take() {
+        if (!available) {
+            return false;
+        }
+        available = false;
+        timeOfParking = LocalDateTime.now();
+        return true;
+    }
 }
