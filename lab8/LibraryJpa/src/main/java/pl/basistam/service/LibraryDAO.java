@@ -1,8 +1,7 @@
 package pl.basistam.service;
 
 import pl.basistam.model.Book;
-
-import javax.ejb.Stateful;
+ 
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
