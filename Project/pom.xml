@@ -5,8 +5,22 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>pl.basistam.soa</groupId>
-    <artifactId>parkomat</artifactId>
+    <artifactId>Project</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
+    <modules>
+        <module>MainSystem</module>
+        <module>Parkometr</module>
+        <module>ParkingSpaceSensor</module>
+    </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>
