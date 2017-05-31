@@ -17,16 +17,14 @@ public class ParkingSensors {
         try {
             System.out.println("1. Zajęcie/ 2. Zwolnienie miejsca (Wybierz 1 lub 2): ");
             int choice = scanner.nextInt();
-            System.out.println("Strefa: ");
-            int area = scanner.nextInt();
             System.out.println("Numer miejsca postojowego: ");
             int parkingSpot = scanner.nextInt();
 
             boolean result = false;
             if (choice == TAKE) {
-                result = service.takeParkingSpot(area, parkingSpot);
+                result = service.takeParkingSpot(parkingSpot);
             } else if (choice == RELEASE) {
-                result = service.takeParkingSpot(area, parkingSpot);
+                result = service.takeParkingSpot(parkingSpot);
             } else {
                 throw new Exception();
             }

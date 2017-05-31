@@ -25,7 +25,7 @@
   </binding>
   <service name="ParkingSensorsService">
     <port name="ParkingSensorsService" binding="tns:ParkingSensorsServiceBinding">
-      <soap:address location="http://localhost:8080//services/pl/basistam/soa/main/webService/ParkingSensorsService"/>
+      <soap:address location="http://localhost:8080//mainApp/ParkingSensorsService"/>
     </port>
   </service>
 </definitions>

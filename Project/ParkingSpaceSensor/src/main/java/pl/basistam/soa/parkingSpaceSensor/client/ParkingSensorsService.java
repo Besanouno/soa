@@ -26,7 +26,6 @@ public interface ParkingSensorsService {
 
     /**
      * 
-     * @param arg1
      * @param arg0
      * @return
      *     returns boolean
@@ -38,13 +37,10 @@ public interface ParkingSensorsService {
     @Action(input = "http://webService.main.soa.basistam.pl/ParkingSensorsService/releaseParkingSpotRequest", output = "http://webService.main.soa.basistam.pl/ParkingSensorsService/releaseParkingSpotResponse")
     public boolean releaseParkingSpot(
         @WebParam(name = "arg0", targetNamespace = "")
-        int arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        int arg1);
+        int arg0);
 
     /**
      * 
-     * @param arg1
      * @param arg0
      * @return
      *     returns boolean
@@ -56,8 +52,6 @@ public interface ParkingSensorsService {
     @Action(input = "http://webService.main.soa.basistam.pl/ParkingSensorsService/takeParkingSpotRequest", output = "http://webService.main.soa.basistam.pl/ParkingSensorsService/takeParkingSpotResponse")
     public boolean takeParkingSpot(
         @WebParam(name = "arg0", targetNamespace = "")
-        int arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        int arg1);
+        int arg0);
 
 }

@@ -1,31 +1,50 @@
 package pl.basistam.soa.main.carPark;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 class ParkingSpot {
-    private boolean available = true;
+
+    public enum State {
+        IDLE, WAITING_FOR_PAYMENT, PAID
+    }
+
+    public ParkingSpot(int id, int area) {
+        this.id = id;
+        this.area = area;
+    }
+
+    private int id;
+    private int area;
+    private State state = State.IDLE;
     private LocalDateTime timeOfParking;
     private LocalDateTime timeOfTicketPurchase;
     private LocalDateTime timeOfTicketExpiration;
 
     public boolean take() {
-        if (!available) {
+        if (state != State.IDLE) {
             return false;
         }
-        available = false;
+        state = State.WAITING_FOR_PAYMENT;
         timeOfParking = LocalDateTime.now();
         return true;
     }
 
+    public boolean pay(LocalDateTime timeOfTicketPurchase,
+                       LocalDateTime timeOfTicketExpiration) {
+        if (state != State.WAITING_FOR_PAYMENT)
+            return false;
+        state = State.PAID;
+        this.timeOfTicketPurchase = timeOfTicketPurchase;
+        this.timeOfTicketExpiration = timeOfTicketExpiration;
+        return true;
+    }
+
     public boolean release() {
-        available = true;
+        if (state == State.IDLE)
+            return false;
         timeOfParking = null;
         timeOfTicketExpiration = null;
         timeOfTicketPurchase = null;

@@ -14,18 +14,18 @@ public class ParkingSensorsService {
     private Parking parking;
 
     @WebMethod
-    public boolean takeParkingSpot(int area, int parkingSpot) {
+    public boolean takeParkingSpot(int parkingSpot) {
         try {
-            return parking.takeParkingSpot(area, parkingSpot);
+            return parking.takeParkingSpot(parkingSpot);
         } catch (WrongParkingSpotNumberException e) {
             return false;
         }
     }
 
     @WebMethod
-    public boolean releaseParkingSpot(int area, int parkingSpot) {
+    public boolean releaseParkingSpot(int parkingSpot) {
         try {
-            return parking.releaseParkingSpot(area, parkingSpot);
+            return parking.releaseParkingSpot(parkingSpot);
         } catch (WrongParkingSpotNumberException e) {
             return false;
         }

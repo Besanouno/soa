@@ -12,7 +12,6 @@
   <xs:complexType name="releaseParkingSpot">
     <xs:sequence>
       <xs:element name="arg0" type="xs:int"/>
-      <xs:element name="arg1" type="xs:int"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -25,7 +24,6 @@
   <xs:complexType name="takeParkingSpot">
     <xs:sequence>
       <xs:element name="arg0" type="xs:int"/>
-      <xs:element name="arg1" type="xs:int"/>
     </xs:sequence>
   </xs:complexType>
 
