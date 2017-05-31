@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 
 @Path("/tickets")
 @ApplicationPath("api")
-public class ParkometrService extends Application {
+public class ParkingMeterService extends Application {
     @Inject
     private ParkingDAO parkingDAO;
 
