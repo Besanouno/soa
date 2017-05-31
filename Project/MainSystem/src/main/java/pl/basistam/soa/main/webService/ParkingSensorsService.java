@@ -1,7 +1,7 @@
 package pl.basistam.soa.main.webService;
 
 import pl.basistam.soa.main.WrongParkingSpotNumberException;
-import pl.basistam.soa.main.model.Parking;
+import pl.basistam.soa.main.carPark.Parking;
 
 import javax.inject.Inject;
 import javax.jws.WebMethod;

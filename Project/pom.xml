@@ -13,6 +13,7 @@
         <module>MainSystem</module>
         <module>Parkometr</module>
         <module>ParkingSpaceSensor</module>
+        <module>NotifierForMobiles</module>
     </modules>
 
     <dependencies>

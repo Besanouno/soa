@@ -1,7 +1,7 @@
 package pl.basistam.soa.main.webService;
 
-import pl.basistam.soa.main.dao.ParkingDAO;
-import pl.basistam.soa.main.dto.TicketDTO;
+import pl.basistam.soa.main.carPark.ParkingDAO;
+import pl.basistam.soa.main.tickets.TicketDTO;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -9,7 +9,7 @@ import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 
 @Path("/tickets")
-@ApplicationPath("parking")
+@ApplicationPath("api")
 public class ParkometrService extends Application {
     @Inject
     private ParkingDAO parkingDAO;

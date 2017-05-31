@@ -2,9 +2,13 @@
     <persistence-unit name="parkomat">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:/Parkomat</jta-data-source>
+        <class>pl.basistam.soa.main.notifications.Notification</class>
+        <class>pl.basistam.soa.main.users.User</class>
+        <class>pl.basistam.soa.main.tickets.Ticket</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
             <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.show_sql" value="true"/>
         </properties>
     </persistence-unit>
 </persistence>
