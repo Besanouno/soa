@@ -5,7 +5,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Data
-class ParkingSpot {
+public class ParkingSpot {
 
     public enum State {
         IDLE, WAITING_FOR_PAYMENT, PAID
@@ -49,5 +49,9 @@ class ParkingSpot {
         timeOfTicketExpiration = null;
         timeOfTicketPurchase = null;
         return true;
+    }
+
+    public boolean isTimeExpireUpToTenMinutes() {
+        return timeOfTicketExpiration.minusMinutes(10).isBefore(LocalDateTime.now());
     }
 }

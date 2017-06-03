@@ -1,5 +1,6 @@
 package pl.basistam.soa.main.carPark;
 
+import lombok.Getter;
 import pl.basistam.soa.main.WrongParkingSpotNumberException;
 
 import javax.ejb.Singleton;
@@ -10,6 +11,7 @@ import java.util.Map;
 @Singleton
 public class Parking {
     private final int NUMBER_OF_PARKING_SPOTS;
+    @Getter
     private Map<Integer, ParkingSpot> parkingSpots = new HashMap<>();
 
     public Parking() {
@@ -49,7 +51,7 @@ public class Parking {
 
     private void validate(int parkingSpot) throws WrongParkingSpotNumberException {
         if (parkingSpot < 1 || parkingSpot > NUMBER_OF_PARKING_SPOTS) {
-            throw new WrongParkingSpotNumberException();
+            throw new WrongParkingSpotNumberException("Wrong parking spot number");
         }
     }
 }

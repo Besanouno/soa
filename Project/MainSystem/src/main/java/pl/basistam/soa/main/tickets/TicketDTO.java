@@ -16,17 +16,22 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class TicketDTO {
-    private Long parkometrId;
+    private int parkingSpotId;
+
+    private Long parkingMeterId;
+
     @JsonSerialize(using = ToStringSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime timeOfPurchase;
+
     @JsonSerialize(using = ToStringSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime timeOfExpiration;
 
     public Ticket toEntity() {
         return Ticket.builder()
-                .parkometrId(this.parkometrId)
+                .parkingSpotId(this.parkingSpotId)
+                .parkingMeterId(this.parkingMeterId)
                 .timeOfPurchase(this.timeOfPurchase)
                 .timeOfExpiration(this.timeOfExpiration)
                 .build();

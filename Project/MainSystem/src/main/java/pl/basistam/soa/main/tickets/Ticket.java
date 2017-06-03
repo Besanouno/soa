@@ -19,7 +19,9 @@ public class Ticket {
     @Id
     @GeneratedValue
     private Long id;
-    private Long parkometrId;
+    private Long parkingMeterId;
+    private int parkingSpotId;
     private LocalDateTime timeOfPurchase;
     private LocalDateTime timeOfExpiration;
+
 }

@@ -1,7 +1,14 @@
 package pl.basistam.soa.main;
 
-/**
- * Created by marcin on 29.05.17.
- */
 public class WrongParkingSpotNumberException extends Exception {
+    private String message;
+
+    public WrongParkingSpotNumberException(String msg) {
+        this.message = msg;
+    }
+
+    @Override
+    public String toString() {
+        return message;
+    }
 }
