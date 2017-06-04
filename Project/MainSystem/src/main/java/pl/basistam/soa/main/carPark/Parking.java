@@ -32,10 +32,10 @@ public class Parking {
         return parkingSpotNumber;
     }
 
-    public boolean takeParkingSpot(int parkingSpotId) throws WrongParkingSpotNumberException {
+    public boolean takeParkingSpot(int parkingSpotId, LocalDateTime timeOfParking) throws WrongParkingSpotNumberException {
         validate(parkingSpotId);
         ParkingSpot parkingSpot = freeParkingSpots.get(parkingSpotId);
-        if (parkingSpot != null && parkingSpot.take()) {
+        if (parkingSpot != null && parkingSpot.take(timeOfParking)) {
             freeParkingSpots.remove(parkingSpotId);
             unpaidParkingSpots.put(parkingSpotId, parkingSpot);
             return true;

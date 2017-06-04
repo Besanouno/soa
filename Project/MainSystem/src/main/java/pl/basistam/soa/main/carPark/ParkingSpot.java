@@ -5,7 +5,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Data
-class ParkingSpot {
+public class ParkingSpot {
 
     public enum State {
         IDLE, WAITING_FOR_PAYMENT, PAID
@@ -22,8 +22,8 @@ class ParkingSpot {
     private LocalDateTime timeOfTicketPurchase;
     private LocalDateTime timeOfTicketExpiration;
 
-    public boolean take() {
-        timeOfParking = LocalDateTime.now();
+    public boolean take(LocalDateTime timeOfParking) {
+        this.timeOfParking = timeOfParking;
         return true;
     }
 
