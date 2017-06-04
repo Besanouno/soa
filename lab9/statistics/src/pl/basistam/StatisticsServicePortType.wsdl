@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions
+        targetNamespace="http://basistam.pl/"
+        xmlns="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:tns="http://basistam.pl/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://basistam.pl/" schemaLocation="StatisticsServicePortType_schema1.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="analyzeCharSequenceRequest">
+    <part name="parameters" element="tns:analyzeCharSequence"/>
+  </message>
+  <message name="analyzeCharSequenceResponse">
+    <part name="parameters" element="tns:analyzeCharSequenceResponse"/>
+  </message>
+  <portType name="StatisticsService">
+    <operation name="analyzeCharSequence">
+      <input ns1:Action="http://basistam.pl/StatisticsService/analyzeCharSequenceRequest" message="tns:analyzeCharSequenceRequest"/>
+      <output ns1:Action="http://basistam.pl/StatisticsService/analyzeCharSequenceResponse" message="tns:analyzeCharSequenceResponse"/>
+    </operation>
+  </portType>
+</definitions>
+

@@ -20,6 +20,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="MainSystem" />
+        <module name="Notifications" />
         <module name="ParkingMeter" />
         <module name="ParkingSpaceSensor" />
         <module name="Parkometr" />
@@ -27,6 +28,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="MainSystem" target="1.8" />
+      <module name="Notifications" target="1.5" />
       <module name="Notifier" target="1.5" />
       <module name="ParkingMeter" target="1.8" />
       <module name="ParkingSpaceSensor" target="1.8" />
