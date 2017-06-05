@@ -18,7 +18,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class TicketDTO implements Serializable {
-    private Long parkometrId;
+    private int parkingSpotId;
+    private Long parkingMeterId;
     @JsonSerialize(using = ToStringSerializer.class)
     private LocalDateTime timeOfPurchase;
     @JsonSerialize(using = ToStringSerializer.class)

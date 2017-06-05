@@ -2,56 +2,80 @@ package pl.basistam.soa.main.carPark;
 
 import lombok.Getter;
 import pl.basistam.soa.main.WrongParkingSpotNumberException;
+import pl.basistam.soa.main.tickets.Ticket;
 
 import javax.ejb.Singleton;
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Singleton
 public class Parking {
-    private final int NUMBER_OF_PARKING_SPOTS;
+    private final int NUMBER_OF_PARKING_SPOTS = 120;
+
     @Getter
-    private Map<Integer, ParkingSpot> parkingSpots = new HashMap<>();
+    private Map<Integer, LocalDateTime> unpaidParkingSpots = new TreeMap<>();
+    @Getter
+    private Map<Integer, Ticket> paidParkingSpots = new TreeMap<>();
+    @Getter
+    private Set<Integer> expiredParkingSpots = new TreeSet<>();
 
     public Parking() {
-        int parkingSpotNumber = 1;
-        parkingSpotNumber = initArea(1, parkingSpotNumber);
-        parkingSpotNumber = initArea(2, parkingSpotNumber);
-        parkingSpotNumber = initArea(3, parkingSpotNumber);
-        parkingSpotNumber = initArea(4, parkingSpotNumber);
-        NUMBER_OF_PARKING_SPOTS = parkingSpotNumber;
     }
 
-    private int initArea(int areaId, int parkingSpotNumber) {
-        for (int i = 0; i < 30; i++) {
-            parkingSpots.put(parkingSpotNumber, new ParkingSpot(parkingSpotNumber, areaId));
-            parkingSpotNumber++;
+    public boolean takeParkingSpot(int parkingSpotId, LocalDateTime timeOfParking) throws WrongParkingSpotNumberException {
+        validate(parkingSpotId);
+        if (!unpaidParkingSpots.containsKey(parkingSpotId)) {
+            unpaidParkingSpots.put(parkingSpotId, timeOfParking);
+            return true;
         }
-        return parkingSpotNumber;
+        return false;
     }
 
-    public boolean takeParkingSpot(int parkingSpot) throws WrongParkingSpotNumberException {
-        validate(parkingSpot);
-        return parkingSpots.get(parkingSpot)
-                .take();
+    public boolean releaseParkingSpot(int parkingSpotId) throws WrongParkingSpotNumberException {
+        validate(parkingSpotId);
+        if (unpaidParkingSpots.containsKey(parkingSpotId)) {
+            unpaidParkingSpots.remove(parkingSpotId);
+            return true;
+        } else if (paidParkingSpots.containsKey(parkingSpotId)) {
+            paidParkingSpots.remove(parkingSpotId);
+            return true;
+        }
+        return false;
     }
 
-    public boolean releaseParkingSpot(int parkingSpot) throws WrongParkingSpotNumberException {
-        validate(parkingSpot);
-        return parkingSpots.get(parkingSpot)
-                .release();
-    }
-
-    public boolean payForParkingSpot(int parkingSpot, LocalDateTime timeOfTicketExpiration) throws WrongParkingSpotNumberException {
-        validate(parkingSpot);
-        return parkingSpots.get(parkingSpot)
-                .pay(LocalDateTime.now(), timeOfTicketExpiration);
+    public boolean payForParkingSpot(int parkingSpotId, Ticket ticket) throws WrongParkingSpotNumberException {
+        validate(parkingSpotId);
+        if (unpaidParkingSpots.containsKey(parkingSpotId)) {
+            unpaidParkingSpots.remove(parkingSpotId);
+            paidParkingSpots.put(parkingSpotId, ticket);
+            return true;
+        } else if (expiredParkingSpots.contains(parkingSpotId)) {
+            expiredParkingSpots.remove(parkingSpotId);
+            paidParkingSpots.put(parkingSpotId, ticket);
+            return true;
+        } else if (paidParkingSpots.containsKey(parkingSpotId)) {
+            paidParkingSpots.put(parkingSpotId, ticket);
+            return true;
+        }
+        return false;
     }
 
     private void validate(int parkingSpot) throws WrongParkingSpotNumberException {
         if (parkingSpot < 1 || parkingSpot > NUMBER_OF_PARKING_SPOTS) {
             throw new WrongParkingSpotNumberException("Wrong parking spot number");
         }
+    }
+
+    public Ticket getNextExpiringTicket() {
+        return paidParkingSpots.entrySet()
+                .stream()
+                .map(Map.Entry::getValue)
+                .min(Comparator.comparing(Ticket::getTimeOfExpiration))
+                .orElse(null);
+    }
+
+    public void expireTicket(int parkingSpotId) {
+        paidParkingSpots.remove(parkingSpotId);
+        expiredParkingSpots.add(parkingSpotId);
     }
 }

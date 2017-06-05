@@ -21,14 +21,17 @@ public class ParkingMeter {
 
     private TicketDTO enterTicketData() {
         System.out.println("Numer parkometru: ");
-        Long id = scanner.nextLong();
+        Long parkingMeterId = scanner.nextLong();
+        System.out.println("Numer miejsca:");
+        int parkingSpotId = scanner.nextInt();
         System.out.println("Czas trwania (minuty): ");
         long minutes = scanner.nextLong();
         LocalDateTime expiration = LocalDateTime.now();
         expiration.plusMinutes(minutes);
 
         return TicketDTO.builder()
-                .parkometrId(id)
+                .parkingMeterId(parkingMeterId)
+                .parkingSpotId(parkingSpotId)
                 .timeOfExpiration(expiration)
                 .timeOfPurchase(LocalDateTime.now())
                 .build();

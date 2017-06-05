@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://basistam.pl/" xmlns:tns="http://basistam.pl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="analyzeCharSequence" type="tns:analyzeCharSequence"/>
+
+  <xs:element name="analyzeCharSequenceResponse" type="tns:analyzeCharSequenceResponse"/>
+
+  <xs:complexType name="analyzeCharSequence">
+    <xs:sequence>
+      <xs:element name="charSequence" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="analyzeCharSequenceResponse">
+    <xs:sequence>
+      <xs:element name="data" type="tns:charSequenceData" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="charSequenceData">
+    <xs:sequence>
+      <xs:element name="numberOfChars" type="xs:int"/>
+      <xs:element name="numberOfWhiteSpaces" type="xs:int"/>
+      <xs:element name="numberOfUppercase" type="xs:int"/>
+      <xs:element name="numberOfLowercase" type="xs:int"/>
+      <xs:element name="numberOfDigits" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
