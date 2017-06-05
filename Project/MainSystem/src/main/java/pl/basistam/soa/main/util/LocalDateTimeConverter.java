@@ -1,6 +1,5 @@
 package pl.basistam.soa.main.util;
 
-import javax.ejb.TimerConfig;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.Date;

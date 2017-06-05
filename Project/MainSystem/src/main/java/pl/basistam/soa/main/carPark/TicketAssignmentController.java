@@ -8,7 +8,6 @@ import pl.basistam.soa.main.tickets.TicketDTO;
 
 import javax.ejb.Singleton;
 import javax.inject.Inject;
-import java.time.LocalDateTime;
 
 @Singleton
 public class TicketAssignmentController {
@@ -22,10 +21,12 @@ public class TicketAssignmentController {
     @Inject
     private TicketsExpirationNotifier ticketsExpirationNotifier;
 
-    public void saveTicket(TicketDTO ticket) throws WrongParkingSpotNumberException {
-        if (parking.payForParkingSpot(ticket.getParkingSpotId(), ticket.getTimeOfExpiration())) {
-            parkingDAO.saveTicket(ticket.toEntity());
-            ticketsExpirationNotifier.update(ticket.getTimeOfExpiration());
+    public void saveTicket(TicketDTO ticketDTO) throws WrongParkingSpotNumberException {
+        Ticket ticket = ticketDTO.toEntity();
+
+        if (parking.payForParkingSpot(ticketDTO.getParkingSpotId(), ticket)) {
+            parkingDAO.saveTicket(ticket);
+            ticketsExpirationNotifier.update();
         }
     }
 }

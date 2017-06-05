@@ -7,10 +7,6 @@ import java.time.LocalDateTime;
 @Data
 public class ParkingSpot {
 
-    public enum State {
-        IDLE, WAITING_FOR_PAYMENT, PAID
-    }
-
     public ParkingSpot(int id, int area) {
         this.id = id;
         this.area = area;
@@ -18,7 +14,8 @@ public class ParkingSpot {
 
     private int id;
     private int area;
-    private LocalDateTime timeOfParking;
+
+/*    private LocalDateTime timeOfParking;
     private LocalDateTime timeOfTicketPurchase;
     private LocalDateTime timeOfTicketExpiration;
 
@@ -39,5 +36,5 @@ public class ParkingSpot {
         timeOfTicketExpiration = null;
         timeOfTicketPurchase = null;
         return true;
-    }
+    }*/
 }

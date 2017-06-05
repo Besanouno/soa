@@ -1,6 +1,7 @@
 package pl.basistam.soa.main.notificators;
 
 import pl.basistam.soa.main.carPark.Parking;
+import pl.basistam.soa.main.tickets.Ticket;
 import pl.basistam.soa.main.util.LocalDateTimeConverter;
 
 import javax.annotation.Resource;
@@ -16,20 +17,41 @@ public class TicketsExpirationNotifier {
     @Resource
     private TimerService timerService;
 
-    private LocalDateTime nextTicketTimeExpiration;
+    private Timer timer;
+    private Ticket nextExpiringTicket;
 
-    public void update(LocalDateTime ticketExpiration) {
-        if (nextTicketTimeExpiration == null || ticketExpiration.isBefore(nextTicketTimeExpiration)) {
-            this.nextTicketTimeExpiration = ticketExpiration;
+    public void update() {
+        findNextExpiringTicket();
+    }
 
-            timerService.createSingleActionTimer(
-                    LocalDateTimeConverter.toDate(ticketExpiration.plusMinutes(2)),
-                    new TimerConfig());
+    private void findNextExpiringTicket() {
+        nextExpiringTicket = parking.getNextExpiringTicket();
+        if (nextExpiringTicket != null) {
+            setTimer();
         }
     }
 
+    private void setTimer() {
+        cancelTimer();
+        timer = timerService.createSingleActionTimer(
+                LocalDateTimeConverter.toDate(nextExpiringTicket.getTimeOfExpiration().plusSeconds(60)),
+                new TimerConfig());
+    }
+
+    private void cancelTimer() {
+        if (timer != null) try {
+            timer.cancel();
+        } catch (NoSuchObjectLocalException e) {
+            // Nothing wrong, timer just expired.
+        }
+    }
+
+
     @Timeout
     public void sendNotificationWhenTicketExpire(Timer timer) {
-        System.out.println("BILET WYGASŁ");
+        System.out.println(LocalDateTime.now() + "BILET WYGASŁ DLA MIEJSCA: " + nextExpiringTicket.getParkingSpotId());
+        parking.expireTicket(nextExpiringTicket.getParkingSpotId());
+        findNextExpiringTicket();
     }
+
 }
