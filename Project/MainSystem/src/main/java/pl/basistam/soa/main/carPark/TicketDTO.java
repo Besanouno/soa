@@ -1,4 +1,4 @@
-package pl.basistam.soa.main.tickets;
+package pl.basistam.soa.main.carPark;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;

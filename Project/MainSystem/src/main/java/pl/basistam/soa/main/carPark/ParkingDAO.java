@@ -1,7 +1,5 @@
 package pl.basistam.soa.main.carPark;
 
-import pl.basistam.soa.main.tickets.Ticket;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

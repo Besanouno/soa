@@ -22,7 +22,7 @@ public class ParkingSensorsService {
     public boolean takeParkingSpot(int parkingSpot) {
         try {
             if (parking.takeParkingSpot(parkingSpot, LocalDateTime.now())) {
-                unpaidParkingNotifier.update(LocalDateTime.now());
+                unpaidParkingNotifier.update();
                 return true;
             }
         } catch (WrongParkingSpotNumberException e) {

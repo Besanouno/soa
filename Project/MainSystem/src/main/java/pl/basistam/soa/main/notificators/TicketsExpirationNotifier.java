@@ -1,7 +1,7 @@
 package pl.basistam.soa.main.notificators;
 
 import pl.basistam.soa.main.carPark.Parking;
-import pl.basistam.soa.main.tickets.Ticket;
+import pl.basistam.soa.main.carPark.Ticket;
 import pl.basistam.soa.main.util.LocalDateTimeConverter;
 
 import javax.annotation.Resource;
@@ -42,7 +42,7 @@ public class TicketsExpirationNotifier {
         if (timer != null) try {
             timer.cancel();
         } catch (NoSuchObjectLocalException e) {
-            // Nothing wrong, timer just expired.
+            // Nothing wrong, timer just expired and there is nothing to cancel.
         }
     }
 

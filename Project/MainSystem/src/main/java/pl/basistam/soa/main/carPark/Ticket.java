@@ -1,4 +1,4 @@
-package pl.basistam.soa.main.tickets;
+package pl.basistam.soa.main.carPark;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
