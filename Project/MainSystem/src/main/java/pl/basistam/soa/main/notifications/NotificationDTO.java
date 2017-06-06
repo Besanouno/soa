@@ -1,6 +1,8 @@
 package pl.basistam.soa.main.notifications;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.*;
@@ -14,8 +16,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class NotificationDTO {
-    private Long area;
-    private Long parkingSpot;
+    private int area;
+    private int parkingSpot;
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     @Getter(AccessLevel.NONE)
     private LocalDateTime time;
@@ -34,5 +36,14 @@ public class NotificationDTO {
                 .area(notification.getArea())
                 .parkingSpot(notification.getParkingSpot())
                 .build();
+    }
+
+    public String toJson() {
+        try {
+            return new ObjectMapper().writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            System.out.println("Error in parsing notification to json");
+            return "";
+        }
     }
 }

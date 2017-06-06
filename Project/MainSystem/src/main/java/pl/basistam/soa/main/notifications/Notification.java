@@ -20,6 +20,6 @@ public class Notification {
     @GeneratedValue
     private Long id;
     private LocalDateTime time;
-    private Long area;
-    private Long parkingSpot;
+    private int area;
+    private int parkingSpot;
 }

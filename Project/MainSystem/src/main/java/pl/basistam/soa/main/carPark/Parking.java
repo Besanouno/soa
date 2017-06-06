@@ -2,23 +2,27 @@ package pl.basistam.soa.main.carPark;
 
 import lombok.Getter;
 import pl.basistam.soa.main.WrongParkingSpotNumberException;
+import pl.basistam.soa.main.carPark.xml.CarParkLayout;
 
 import javax.ejb.Singleton;
+import javax.inject.Inject;
 import java.time.LocalDateTime;
 import java.util.*;
 
 @Singleton
 public class Parking {
-    private final int NUMBER_OF_PARKING_SPOTS = 120;
-
+    private final int NUMBER_OF_PARKING_SPOTS;
     @Getter
     private TreeMap<Integer, LocalDateTime> unpaidParkingSpots = new TreeMap<>();
     @Getter
     private Map<Integer, Ticket> paidParkingSpots = new TreeMap<>();
     @Getter
     private Set<Integer> expiredParkingSpots = new TreeSet<>();
+    @Inject
+    private CarParkLayout carParkLayout;
 
     public Parking() {
+        NUMBER_OF_PARKING_SPOTS = carParkLayout.getParkingSpotsNumber();
     }
 
     public boolean takeParkingSpot(int parkingSpotId, LocalDateTime timeOfParking) throws WrongParkingSpotNumberException {
@@ -46,7 +50,6 @@ public class Parking {
         validate(parkingSpotId);
         if (unpaidParkingSpots.containsKey(parkingSpotId)) {
             unpaidParkingSpots.remove(parkingSpotId);
-            System.out.println("Usunalem " + parkingSpotId + " z unpaid, obecny stan " + unpaidParkingSpots.size() );
             paidParkingSpots.put(parkingSpotId, ticket);
             return true;
         } else if (expiredParkingSpots.contains(parkingSpotId)) {

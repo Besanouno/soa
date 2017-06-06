@@ -3,6 +3,7 @@ package pl.basistam.soa.main.notificators;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import pl.basistam.soa.main.carPark.Parking;
+import pl.basistam.soa.main.jms.MessageSender;
 import pl.basistam.soa.main.util.LocalDateTimeConverter;
 
 import javax.annotation.Resource;
@@ -18,6 +19,9 @@ public class UnpaidParkingNotifier {
 
     @Inject
     private Parking parking;
+
+    @Inject
+    private MessageSender messageSender;
 
     @Getter
     @AllArgsConstructor

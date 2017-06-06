@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MainSystem/MainSystem.iml" filepath="$PROJECT_DIR$/MainSystem/MainSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/Notifications/Notifications.iml" filepath="$PROJECT_DIR$/Notifications/Notifications.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Notifications/Notifications.iml" filepath="$PROJECT_DIR$/Notifications/Notifications.iml" />
       <module fileurl="file://$PROJECT_DIR$/ParkingMeter/ParkingMeter.iml" filepath="$PROJECT_DIR$/ParkingMeter/ParkingMeter.iml" />
       <module fileurl="file://$PROJECT_DIR$/ParkingSpaceSensor/ParkingSpaceSensor.iml" filepath="$PROJECT_DIR$/ParkingSpaceSensor/ParkingSpaceSensor.iml" />
       <module fileurl="file://$PROJECT_DIR$/Project.iml" filepath="$PROJECT_DIR$/Project.iml" />

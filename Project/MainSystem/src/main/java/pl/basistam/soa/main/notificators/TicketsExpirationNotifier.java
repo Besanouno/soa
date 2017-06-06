@@ -2,6 +2,9 @@ package pl.basistam.soa.main.notificators;
 
 import pl.basistam.soa.main.carPark.Parking;
 import pl.basistam.soa.main.carPark.Ticket;
+import pl.basistam.soa.main.carPark.xml.CarParkLayout;
+import pl.basistam.soa.main.jms.MessageSender;
+import pl.basistam.soa.main.notifications.NotificationDTO;
 import pl.basistam.soa.main.util.LocalDateTimeConverter;
 
 import javax.annotation.Resource;
@@ -16,6 +19,12 @@ public class TicketsExpirationNotifier {
 
     @Resource
     private TimerService timerService;
+
+    @Inject
+    private MessageSender messageSender;
+
+    @Inject
+    private CarParkLayout carParkLayout;
 
     private Timer timer;
     private Ticket nextExpiringTicket;
@@ -49,7 +58,14 @@ public class TicketsExpirationNotifier {
 
     @Timeout
     public void sendNotificationWhenTicketExpire(Timer timer) {
-        System.out.println(LocalDateTime.now() + "BILET WYGASŁ DLA MIEJSCA: " + nextExpiringTicket.getParkingSpotId());
+        int parkingSpot = nextExpiringTicket.getParkingSpotId();
+
+        NotificationDTO notificationDTO = NotificationDTO.builder()
+                .area(carParkLayout.getAreaForParkingSpot(parkingSpot))
+                .parkingSpot(parkingSpot)
+                .time(nextExpiringTicket.getTimeOfExpiration())
+                .build();
+        messageSender.send(notificationDTO.toJson());
         parking.expireTicket(nextExpiringTicket.getParkingSpotId());
         findNextExpiringTicket();
     }
