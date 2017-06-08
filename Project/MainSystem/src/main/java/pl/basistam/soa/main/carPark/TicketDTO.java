@@ -34,4 +34,13 @@ public class TicketDTO {
                 .timeOfExpiration(this.timeOfExpiration)
                 .build();
     }
+
+    public static TicketDTO fromEntity(Ticket ticket) {
+        return TicketDTO.builder()
+                .parkingSpotId(ticket.getParkingSpotId())
+                .parkingMeterId(ticket.getParkingMeterId())
+                .timeOfPurchase(ticket.getTimeOfPurchase())
+                .timeOfExpiration(ticket.getTimeOfExpiration())
+                .build();
+    }
 }

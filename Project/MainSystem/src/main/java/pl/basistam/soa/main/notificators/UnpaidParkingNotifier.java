@@ -3,6 +3,7 @@ package pl.basistam.soa.main.notificators;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import pl.basistam.soa.main.carPark.Parking;
+import pl.basistam.soa.main.carPark.UnpaidParkingSpot;
 import pl.basistam.soa.main.jms.MessageSender;
 import pl.basistam.soa.main.notifications.NotificationDTO;
 import pl.basistam.soa.main.util.LocalDateTimeConverter;
@@ -24,12 +25,7 @@ public class UnpaidParkingNotifier {
     @Inject
     private MessageSender messageSender;
 
-    @Getter
-    @AllArgsConstructor
-    private class UnpaidParkingSpot {
-        private int parkingSpotId;
-        private LocalDateTime timeOfParking;
-    }
+    private static final int UNPAID_PARKING_TIMEOUT_SEC = 120;
 
     private UnpaidParkingSpot firstUnpaidParkingSpot;
     private Timer timer;
@@ -51,7 +47,7 @@ public class UnpaidParkingNotifier {
     private void setTimer() {
         cancelTimer();
         timer = timerService.createSingleActionTimer(
-                LocalDateTimeConverter.toDate(firstUnpaidParkingSpot.getTimeOfParking().plusSeconds(3)),
+                LocalDateTimeConverter.toDate(firstUnpaidParkingSpot.getTimeOfParking().plusSeconds(UNPAID_PARKING_TIMEOUT_SEC)),
                 new TimerConfig());
     }
 
@@ -71,7 +67,7 @@ public class UnpaidParkingNotifier {
                 .time(firstUnpaidParkingSpot.getTimeOfParking())
                 .build();
         messageSender.send(notificationDTO.toJson());
-        parking.expireTimeToBuyTicket(firstUnpaidParkingSpot.getParkingSpotId());
+        parking.expireTimeToBuyTicket(firstUnpaidParkingSpot.getParkingSpotId(), firstUnpaidParkingSpot.getTimeOfParking());
         findFirstUnpaidParking();
     }
 

@@ -63,7 +63,7 @@ public class TicketsExpirationNotifier {
                 .time(nextExpiringTicket.getTimeOfExpiration())
                 .build();
         messageSender.send(notificationDTO.toJson());
-        parking.expireTicket(nextExpiringTicket.getParkingSpotId());
+        parking.expireTicket(nextExpiringTicket.getParkingSpotId(), nextExpiringTicket.getTimeOfExpiration());
         findNextExpiringTicket();
     }
 

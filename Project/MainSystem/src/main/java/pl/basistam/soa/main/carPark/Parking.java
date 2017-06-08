@@ -5,7 +5,6 @@ import pl.basistam.soa.main.WrongParkingSpotNumberException;
 import pl.basistam.soa.main.carPark.xml.CarParkLayout;
 
 import javax.ejb.Singleton;
-import javax.inject.Inject;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -17,7 +16,7 @@ public class Parking {
     @Getter
     private Map<Integer, Ticket> paidParkingSpots = new TreeMap<>();
     @Getter
-    private Set<Integer> expiredParkingSpots = new TreeSet<>();
+    private Map<Integer, LocalDateTime> expiredParkingSpots = new TreeMap<>();
 
     private CarParkLayout carParkLayout = new CarParkLayout();
 
@@ -52,7 +51,7 @@ public class Parking {
             unpaidParkingSpots.remove(parkingSpotId);
             paidParkingSpots.put(parkingSpotId, ticket);
             return true;
-        } else if (expiredParkingSpots.contains(parkingSpotId)) {
+        } else if (expiredParkingSpots.containsKey(parkingSpotId)) {
             expiredParkingSpots.remove(parkingSpotId);
             paidParkingSpots.put(parkingSpotId, ticket);
             return true;
@@ -77,14 +76,14 @@ public class Parking {
                 .orElse(null);
     }
 
-    public void expireTicket(int parkingSpotId) {
+    public void expireTicket(int parkingSpotId, LocalDateTime timeOfExpiration) {
         paidParkingSpots.remove(parkingSpotId);
-        expiredParkingSpots.add(parkingSpotId);
+        expiredParkingSpots.put(parkingSpotId, timeOfExpiration);
     }
 
-    public void expireTimeToBuyTicket(int parkingSpotId) {
+    public void expireTimeToBuyTicket(int parkingSpotId, LocalDateTime timeOfExpiration) {
         unpaidParkingSpots.remove(parkingSpotId);
-        expiredParkingSpots.add(parkingSpotId);
+        expiredParkingSpots.put(parkingSpotId, timeOfExpiration);
     }
 
     public int getAreaForParkingSpot(int parkingSpot) {
