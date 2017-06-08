@@ -1,6 +1,7 @@
 package pl.basistam.soa.main.carPark.xml;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class Area {
         this.id = id;
     }
 
-    @XmlAttribute(name = "id")
+    @XmlElement(name = "spot")
     public List<Integer> getSpots() {
         return spots;
     }

@@ -18,25 +18,10 @@ import java.time.LocalDateTime;
 public class NotificationDTO {
     private int area;
     private int parkingSpot;
-    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
+    @JsonSerialize(using = ToStringSerializer.class)
     @Getter(AccessLevel.NONE)
     private LocalDateTime time;
 
-    public Notification toEntity() {
-        return Notification.builder()
-                .time(this.time)
-                .area(this.area)
-                .parkingSpot(this.parkingSpot)
-                .build();
-    }
-
-    public static NotificationDTO toDTO(Notification notification) {
-        return NotificationDTO.builder()
-                .time(notification.getTime())
-                .area(notification.getArea())
-                .parkingSpot(notification.getParkingSpot())
-                .build();
-    }
 
     public String toJson() {
         try {

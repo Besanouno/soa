@@ -13,8 +13,10 @@ public class MessageSender {
     @Inject
     private JMSContext context;
 
-    @Resource(mappedName = "java:jboss/exported/jms/queue/Company")
+    @Resource(mappedName = "java:jboss/exported/jms/queue/Parkomat")
     private Queue queue;
 
-    public void send(String text) { context.createProducer().send(queue, text); }
+    public void send(String text) {
+        context.createProducer().send(queue, text);
+    }
 }

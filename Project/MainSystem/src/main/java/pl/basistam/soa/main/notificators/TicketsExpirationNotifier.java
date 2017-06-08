@@ -23,9 +23,6 @@ public class TicketsExpirationNotifier {
     @Inject
     private MessageSender messageSender;
 
-    @Inject
-    private CarParkLayout carParkLayout;
-
     private Timer timer;
     private Ticket nextExpiringTicket;
 
@@ -61,7 +58,7 @@ public class TicketsExpirationNotifier {
         int parkingSpot = nextExpiringTicket.getParkingSpotId();
 
         NotificationDTO notificationDTO = NotificationDTO.builder()
-                .area(carParkLayout.getAreaForParkingSpot(parkingSpot))
+                .area(parking.getAreaForParkingSpot(parkingSpot))
                 .parkingSpot(parkingSpot)
                 .time(nextExpiringTicket.getTimeOfExpiration())
                 .build();

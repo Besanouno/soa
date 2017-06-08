@@ -18,8 +18,8 @@ public class Parking {
     private Map<Integer, Ticket> paidParkingSpots = new TreeMap<>();
     @Getter
     private Set<Integer> expiredParkingSpots = new TreeSet<>();
-    @Inject
-    private CarParkLayout carParkLayout;
+
+    private CarParkLayout carParkLayout = new CarParkLayout();
 
     public Parking() {
         NUMBER_OF_PARKING_SPOTS = carParkLayout.getParkingSpotsNumber();
@@ -85,6 +85,10 @@ public class Parking {
     public void expireTimeToBuyTicket(int parkingSpotId) {
         unpaidParkingSpots.remove(parkingSpotId);
         expiredParkingSpots.add(parkingSpotId);
+    }
+
+    public int getAreaForParkingSpot(int parkingSpot) {
+        return carParkLayout.getAreaForParkingSpot(parkingSpot);
     }
 
     public Map.Entry<Integer, LocalDateTime> getFirstUnpaidParkingSpot() {

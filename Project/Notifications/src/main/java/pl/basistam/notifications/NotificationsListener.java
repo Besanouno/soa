@@ -15,17 +15,17 @@ import javax.jms.TextMessage;
         @ActivationConfigProperty(propertyName =
                 "acknowledgeMode", propertyValue = "Auto-acknowledge")})
 public class NotificationsListener implements MessageListener {
-//
-//    @Inject
-//    private NotificationDAO notificationDAO;
+
+    @Inject
+    private NotificationDAO notificationDAO;
 
     @Override
     public void onMessage(Message message) {
         try {
             NotificationDTO notificationDTO = NotificationDTO.fromJson(((TextMessage) message).getText());
             System.out.println(notificationDTO.getParkingSpot());
-//            Notification notification = notificationDTO.toEntity();
-//            notificationDAO.saveNotification(notification);
+            Notification notification = notificationDTO.toEntity();
+            notificationDAO.saveNotification(notification);
         } catch (JMSException e) {
             e.printStackTrace();
         }

@@ -10,9 +10,9 @@ public class AreasReader {
         try {
             JAXBContext context = JAXBContext.newInstance(Areas.class);
             final File file = initFile();
-            Unmarshaller um = null;
-            um = context.createUnmarshaller();
-            return (Areas) um.unmarshal(file);
+            Unmarshaller um = context.createUnmarshaller();
+
+            return  (Areas) um.unmarshal(file);
         } catch (JAXBException e) {
             throw new RuntimeException("Cannot read parking initialization data");
         }

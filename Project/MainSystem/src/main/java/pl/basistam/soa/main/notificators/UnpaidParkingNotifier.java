@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import pl.basistam.soa.main.carPark.Parking;
 import pl.basistam.soa.main.jms.MessageSender;
+import pl.basistam.soa.main.notifications.NotificationDTO;
 import pl.basistam.soa.main.util.LocalDateTimeConverter;
 
 import javax.annotation.Resource;
@@ -50,7 +51,7 @@ public class UnpaidParkingNotifier {
     private void setTimer() {
         cancelTimer();
         timer = timerService.createSingleActionTimer(
-                LocalDateTimeConverter.toDate(firstUnpaidParkingSpot.getTimeOfParking().plusSeconds(30)),
+                LocalDateTimeConverter.toDate(firstUnpaidParkingSpot.getTimeOfParking().plusSeconds(3)),
                 new TimerConfig());
     }
 
@@ -64,7 +65,12 @@ public class UnpaidParkingNotifier {
 
     @Timeout
     public void sendNotificationWhenTicketIsNotBought(Timer timer) {
-        System.out.println("Bilet nie został kupiony");
+        NotificationDTO notificationDTO = NotificationDTO.builder()
+                .area(parking.getAreaForParkingSpot(firstUnpaidParkingSpot.getParkingSpotId()))
+                .parkingSpot(firstUnpaidParkingSpot.getParkingSpotId())
+                .time(firstUnpaidParkingSpot.getTimeOfParking())
+                .build();
+        messageSender.send(notificationDTO.toJson());
         parking.expireTimeToBuyTicket(firstUnpaidParkingSpot.getParkingSpotId());
         findFirstUnpaidParking();
     }
