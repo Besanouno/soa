@@ -40,4 +40,8 @@ public class DashboardController {
                 .map(e -> new UnpaidParkingSpot(e.getKey(), e.getValue()))
                 .collect(Collectors.toList());
     }
+
+    public void hello() {
+        System.out.println("SIEMA");
+    }
 }

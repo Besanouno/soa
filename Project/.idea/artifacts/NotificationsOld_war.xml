@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="NotificationsOld:war">
+    <output-path>$PROJECT_DIR$/NotificationsOld/target</output-path>
+    <root id="archive" name="notificationsOld.war">
+      <element id="artifact" artifact-name="NotificationsOld:war exploded" />
+    </root>
+  </artifact>
+</component>

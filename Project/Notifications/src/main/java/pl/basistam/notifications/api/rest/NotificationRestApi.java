@@ -1,6 +1,5 @@
 package pl.basistam.notifications.api.rest;
 
-
 import pl.basistam.notifications.NotificationDAO;
 import pl.basistam.notifications.NotificationDTO;
 

@@ -41,6 +41,9 @@ public class Parking {
         } else if (paidParkingSpots.containsKey(parkingSpotId)) {
             paidParkingSpots.remove(parkingSpotId);
             return true;
+        } else if (expiredParkingSpots.containsKey(parkingSpotId)) {
+            expiredParkingSpots.remove(parkingSpotId);
+            return true;
         }
         return false;
     }

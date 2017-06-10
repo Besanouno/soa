@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Notifications">
+    <output-path>$PROJECT_DIR$/Notifications/target</output-path>
+    <root id="archive" name="Notifications-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Notifications:war exploded" />
+    </root>
+  </artifact>
+</component>

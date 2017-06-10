@@ -1,0 +1,3 @@
+<jboss-web>
+    <security-domain>parkomat</security-domain>
+</jboss-web>

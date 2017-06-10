@@ -61,6 +61,9 @@ public class UnpaidParkingNotifier {
 
     @Timeout
     public void sendNotificationWhenTicketIsNotBought(Timer timer) {
+        if (firstUnpaidParkingSpot == null) {
+            return;
+        }
         NotificationDTO notificationDTO = NotificationDTO.builder()
                 .area(parking.getAreaForParkingSpot(firstUnpaidParkingSpot.getParkingSpotId()))
                 .parkingSpot(firstUnpaidParkingSpot.getParkingSpotId())

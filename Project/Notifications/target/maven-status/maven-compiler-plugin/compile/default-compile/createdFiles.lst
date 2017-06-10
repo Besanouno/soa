@@ -1,9 +1,10 @@
 pl/basistam/notifications/NotificationDTO$NotificationDTOBuilder.class
 pl/basistam/notifications/Notification$NotificationBuilder.class
+pl/basistam/notifications/NotificationListener.class
 pl/basistam/notifications/Notification.class
 pl/basistam/notifications/api/soap/NotificationSoapApi.class
 pl/basistam/notifications/NotificationDTO.class
 pl/basistam/notifications/api/rest/NotificationRestApi.class
-pl/basistam/notifications/NotificationsListener.class
+pl/basistam/notifications/api/rest/HelloRest.class
 pl/basistam/notifications/util/LocalDateTimeAdapter.class
 pl/basistam/notifications/NotificationDAO.class

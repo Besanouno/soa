@@ -29,6 +29,7 @@
     <bytecodeTargetLevel>
       <module name="MainSystem" target="1.8" />
       <module name="Notifications" target="1.8" />
+      <module name="NotificationsOld" target="1.8" />
       <module name="Notifier" target="1.5" />
       <module name="ParkingMeter" target="1.8" />
       <module name="ParkingSpaceSensor" target="1.8" />

@@ -4,11 +4,13 @@ import pl.basistam.soa.main.carPark.Parking;
 import pl.basistam.soa.main.carPark.Ticket;
 import pl.basistam.soa.main.carPark.xml.CarParkLayout;
 import pl.basistam.soa.main.jms.MessageSender;
+import pl.basistam.soa.main.jsf.DashboardController;
 import pl.basistam.soa.main.notifications.NotificationDTO;
 import pl.basistam.soa.main.util.LocalDateTimeConverter;
 
 import javax.annotation.Resource;
 import javax.ejb.*;
+import javax.faces.bean.ManagedProperty;
 import javax.inject.Inject;
 import java.time.LocalDateTime;
 
