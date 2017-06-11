@@ -20,6 +20,7 @@ pl/basistam/soa/main/carPark/Ticket.class
 pl/basistam/soa/main/carPark/UnpaidParkingSpot.class
 pl/basistam/soa/main/util/LocalDateTimeConverter.class
 pl/basistam/soa/main/carPark/TicketDTO.class
+pl/basistam/soa/main/jsf/AdminPanel.class
 pl/basistam/soa/main/security/users/User.class
 pl/basistam/soa/main/notificators/UnpaidParkingNotifier.class
 pl/basistam/soa/main/carPark/TicketAssignmentController.class
@@ -27,5 +28,7 @@ pl/basistam/soa/main/security/users/UsersDAO.class
 pl/basistam/soa/main/notificators/TicketsExpirationNotifier.class
 pl/basistam/soa/main/notifications/NotificationDTO$NotificationDTOBuilder.class
 pl/basistam/soa/main/webService/ParkingSensorsService.class
+pl/basistam/soa/main/api/rest/NotificationRestApi.class
 pl/basistam/soa/main/jsf/DashboardController.class
 pl/basistam/soa/main/carPark/xml/AreasReader.class
+pl/basistam/soa/main/jsf/PasswordPanel.class

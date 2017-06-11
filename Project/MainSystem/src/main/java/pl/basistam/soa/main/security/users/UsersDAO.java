@@ -15,4 +15,23 @@ public class UsersDAO {
         return (user != null) && user.getPassword().equals(password);
     }
 
+    public boolean changePassword(String id, String newPassword) {
+        User user = entityManager.find(User.class, id);
+        if (user != null) {
+            user.setPassword(newPassword);
+            entityManager.merge(user);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean changePassword(String id, String oldPassword, String newPassword) {
+        User user = entityManager.find(User.class, id);
+        if (user != null && !user.getPassword().equals(oldPassword)) {
+            user.setPassword(newPassword);
+            entityManager.merge(user);
+            return true;
+        }
+        return false;
+    }
 }

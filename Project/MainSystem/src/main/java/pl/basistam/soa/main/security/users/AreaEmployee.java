@@ -15,6 +15,7 @@ public class AreaEmployee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @ManyToOne
     private User employee;
     private Integer area;
