@@ -2,6 +2,7 @@ package pl.basistam.soa.main.notificators;
 
 import pl.basistam.dataAccess.common.NotificationType;
 import pl.basistam.dataAccess.dto.NotificationDto;
+import pl.basistam.dataAccess.dto.ParkingSpotDto;
 import pl.basistam.dataAccess.util.LocalDateTimeConverter;
 import pl.basistam.soa.main.carPark.CarPark;
 import pl.basistam.soa.main.carPark.UnpaidParkingSpot;
@@ -63,9 +64,13 @@ public class UnpaidParkingNotifier {
         if (firstUnpaidParkingSpot == null) {
             return;
         }
-        NotificationDto notificationDTO = NotificationDto.builder()
+        ParkingSpotDto parkingSpotDto = ParkingSpotDto.builder()
+                .id(firstUnpaidParkingSpot.getParkingSpotId())
                 .area(carPark.getAreaForParkingSpot(firstUnpaidParkingSpot.getParkingSpotId()))
-                .parkingSpot(firstUnpaidParkingSpot.getParkingSpotId())
+                .build();
+
+        NotificationDto notificationDTO = NotificationDto.builder()
+                .parkingSpotDto(parkingSpotDto)
                 .time(firstUnpaidParkingSpot.getTimeOfParking())
                 .type(NotificationType.UNPAID)
                 .build();

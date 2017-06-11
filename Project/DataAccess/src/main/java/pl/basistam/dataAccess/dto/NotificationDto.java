@@ -19,8 +19,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class NotificationDto {
-    private int area;
-    private int parkingSpot;
+    private ParkingSpotDto parkingSpotDto;
     private String type;
     @JsonSerialize(using = ToStringSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
@@ -31,8 +30,7 @@ public class NotificationDto {
     public Notification toEntity() {
         return Notification.builder()
                 .time(this.time)
-                .area(this.area)
-                .parkingSpot(this.parkingSpot)
+                .parkingSpot(this.parkingSpotDto.toEntity())
                 .type(this.type)
                 .build();
     }
@@ -40,8 +38,7 @@ public class NotificationDto {
     public static NotificationDto fromEntity(Notification entity) {
         return NotificationDto.builder()
                 .time(entity.getTime())
-                .area(entity.getArea())
-                .parkingSpot(entity.getParkingSpot())
+                .parkingSpotDto(ParkingSpotDto.fromEntity(entity.getParkingSpot()))
                 .type(entity.getType())
                 .build();
     }

@@ -2,6 +2,7 @@ package pl.basistam.soa.main.notificators;
 
 import pl.basistam.dataAccess.common.NotificationType;
 import pl.basistam.dataAccess.dto.NotificationDto;
+import pl.basistam.dataAccess.dto.ParkingSpotDto;
 import pl.basistam.dataAccess.entities.Ticket;
 import pl.basistam.dataAccess.util.LocalDateTimeConverter;
 import pl.basistam.soa.main.carPark.CarPark;
@@ -54,16 +55,13 @@ public class TicketsExpirationNotifier {
 
     @Timeout
     public void sendNotificationWhenTicketExpire(Timer timer) {
-        int parkingSpot = nextExpiringTicket.getParkingSpotId();
-
         NotificationDto notificationDTO = NotificationDto.builder()
-                .area(carPark.getAreaForParkingSpot(parkingSpot))
-                .parkingSpot(parkingSpot)
+                .parkingSpotDto(ParkingSpotDto.fromEntity(nextExpiringTicket.getParkingSpot()))
                 .time(nextExpiringTicket.getTimeOfExpiration())
                 .type(NotificationType.TICKET_EXPIRED)
                 .build();
         messageSender.send(notificationDTO.toJson());
-        carPark.expireTicket(nextExpiringTicket.getParkingSpotId(), nextExpiringTicket.getTimeOfExpiration());
+        carPark.expireTicket(nextExpiringTicket.getParkingSpot().getId(), nextExpiringTicket.getTimeOfExpiration());
         findNextExpiringTicket();
     }
 

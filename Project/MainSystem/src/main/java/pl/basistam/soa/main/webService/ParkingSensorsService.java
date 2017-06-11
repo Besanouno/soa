@@ -30,7 +30,7 @@ public class ParkingSensorsService {
         try {
             LocalDateTime timeOfParking = LocalDateTime.now();
             if (carPark.takeParkingSpot(parkingSpot, timeOfParking)) {
-                carParkDAO.saveParking(new Parking(parkingSpot, timeOfParking));
+                carParkDAO.saveParking(parkingSpot, timeOfParking);
                 unpaidParkingNotifier.update();
                 return true;
             }

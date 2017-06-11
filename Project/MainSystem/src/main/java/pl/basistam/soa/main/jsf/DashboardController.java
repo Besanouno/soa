@@ -4,13 +4,20 @@ import pl.basistam.dataAccess.dto.TicketDto;
 import pl.basistam.soa.main.carPark.CarPark;
 import pl.basistam.soa.main.carPark.UnpaidParkingSpot;
 
+import javax.ejb.DependsOn;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @ManagedBean
+@SessionScoped
 public class DashboardController {
+
     @Inject
     private CarPark carPark;
 
@@ -41,7 +48,4 @@ public class DashboardController {
                 .collect(Collectors.toList());
     }
 
-    public void hello() {
-        System.out.println("SIEMA");
-    }
 }

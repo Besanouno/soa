@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -16,14 +13,15 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Parking implements Serializable {
-    public Parking(int parkingSpotId, LocalDateTime timeOfParking) {
-        this.parkingSpotId = parkingSpotId;
+    public Parking(ParkingSpot parkingSpot, LocalDateTime timeOfParking) {
+        this.parkingSpot = parkingSpot;
         this.timeOfParking = timeOfParking;
     }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int parkingSpotId;
+    @OneToOne
+    private ParkingSpot parkingSpot;
     private LocalDateTime timeOfParking;
 
 }

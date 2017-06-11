@@ -27,7 +27,6 @@ public class NotificationListener implements MessageListener {
     public void onMessage(Message message) {
         try {
             NotificationDto notificationDTO = NotificationDto.fromJson(((TextMessage) message).getText());
-            System.out.println(notificationDTO.getParkingSpot());
             Notification notification = notificationDTO.toEntity();
             notificationDAO.saveNotification(notification);
         } catch (JMSException e) {

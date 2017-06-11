@@ -22,8 +22,8 @@ public class Ticket implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Integer parkingSpotId;
-    private Integer area;
+    @OneToOne
+    private ParkingSpot parkingSpot;
     private Long parkingMeterId;
     private LocalDateTime timeOfPurchase;
     private LocalDateTime timeOfExpiration;

@@ -1,15 +1,21 @@
 package pl.basistam.dataAccess.api;
 
 import pl.basistam.dataAccess.entities.Parking;
+import pl.basistam.dataAccess.entities.ParkingSpot;
 import pl.basistam.dataAccess.entities.Ticket;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 public interface CarParkDao {
-    public void saveTicket(Ticket ticket);
+    void saveTicket(Ticket ticket);
 
-    public void saveParking(Parking parking);
+    void saveParking(Integer parkingSpotId, LocalDateTime timeOfParking);
 
-    public List<Ticket> getTicketsFromArea(int area, LocalDateTime beginning, LocalDateTime end);
+    List<Ticket> getTicketsFromArea(int area, LocalDateTime beginning, LocalDateTime end);
+
+    Long getParkingSpotNumber();
+
+    ParkingSpot getParkingSpot(Integer id);
+
 }

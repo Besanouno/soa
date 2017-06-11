@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.basistam.dataAccess.entities.ParkingSpot;
 import pl.basistam.dataAccess.entities.Ticket;
 
 import java.time.LocalDateTime;
@@ -27,9 +28,9 @@ public class TicketDto {
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime timeOfExpiration;
 
-    public Ticket toEntity() {
+    public Ticket toEntity(ParkingSpot parkingSpot) {
         return Ticket.builder()
-                .parkingSpotId(this.parkingSpotId)
+                .parkingSpot(parkingSpot)
                 .parkingMeterId(this.parkingMeterId)
                 .timeOfPurchase(this.timeOfPurchase)
                 .timeOfExpiration(this.timeOfExpiration)
@@ -38,7 +39,7 @@ public class TicketDto {
 
     public static TicketDto fromEntity(Ticket ticket) {
         return TicketDto.builder()
-                .parkingSpotId(ticket.getParkingSpotId())
+                .parkingSpotId(ticket.getParkingSpot().getId())
                 .parkingMeterId(ticket.getParkingMeterId())
                 .timeOfPurchase(ticket.getTimeOfPurchase())
                 .timeOfExpiration(ticket.getTimeOfExpiration())

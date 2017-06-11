@@ -2,16 +2,14 @@ package pl.basistam.dataAccess.dao;
 
 import pl.basistam.dataAccess.api.NotificationDao;
 import pl.basistam.dataAccess.entities.Notification;
+import pl.basistam.dataAccess.entities.ParkingSpot;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +37,8 @@ public class NotificationDaoImpl implements NotificationDao {
             predicates.add(criteriaBuilder.lessThanOrEqualTo(rootQuery.get("time"), end));
         }
         if (area != null) {
-            predicates.add(criteriaBuilder.equal(rootQuery.get("area"), area));
+            Join<Notification, ParkingSpot> join = rootQuery.join("parkingSpot");
+            predicates.add(criteriaBuilder.equal(join.get("area"), area));
         }
         criteriaQuery.where(predicates.toArray(new Predicate[predicates.size()]));
 

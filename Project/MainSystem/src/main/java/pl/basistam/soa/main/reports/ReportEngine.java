@@ -46,7 +46,7 @@ public class ReportEngine {
 
             tickets.forEach(t ->
             {
-                PdfPCell parkingSpotCell = new PdfPCell(new Paragraph(Integer.toString(t.getParkingSpotId())));
+                PdfPCell parkingSpotCell = new PdfPCell(new Paragraph(Integer.toString(t.getParkingSpot().getId())));
                 table.addCell(parkingSpotCell);
 
                 PdfPCell purchaseDateCell = new PdfPCell(new Paragraph(t.getTimeOfPurchase().format(DATE_FORMATTER)));
