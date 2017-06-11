@@ -4,6 +4,7 @@ import pl.basistam.soa.main.carPark.CarPark;
 import pl.basistam.soa.main.carPark.UnpaidParkingSpot;
 import pl.basistam.soa.main.jms.MessageSender;
 import pl.basistam.soa.main.notifications.NotificationDTO;
+import pl.basistam.soa.main.notifications.NotificationType;
 import pl.basistam.soa.main.util.LocalDateTimeConverter;
 
 import javax.annotation.Resource;
@@ -66,6 +67,7 @@ public class UnpaidParkingNotifier {
                 .area(carPark.getAreaForParkingSpot(firstUnpaidParkingSpot.getParkingSpotId()))
                 .parkingSpot(firstUnpaidParkingSpot.getParkingSpotId())
                 .time(firstUnpaidParkingSpot.getTimeOfParking())
+                .type(NotificationType.UNPAID)
                 .build();
         messageSender.send(notificationDTO.toJson());
         carPark.expireTimeToBuyTicket(firstUnpaidParkingSpot.getParkingSpotId(), firstUnpaidParkingSpot.getTimeOfParking());

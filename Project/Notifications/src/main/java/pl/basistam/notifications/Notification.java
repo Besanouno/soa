@@ -23,4 +23,5 @@ public class Notification {
     private LocalDateTime time;
     private int area;
     private int parkingSpot;
+    private String type;
 }

@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 public class NotificationDTO {
     private int area;
     private int parkingSpot;
+    private String type;
     @JsonSerialize(using = ToStringSerializer.class)
     @Getter(AccessLevel.NONE)
     private LocalDateTime time;

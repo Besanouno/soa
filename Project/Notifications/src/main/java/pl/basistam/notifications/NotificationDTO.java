@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 public class NotificationDTO {
     private int area;
     private int parkingSpot;
+    private String type;
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     @Getter(AccessLevel.NONE)
@@ -28,6 +29,7 @@ public class NotificationDTO {
                 .time(this.time)
                 .area(this.area)
                 .parkingSpot(this.parkingSpot)
+                .type(this.type)
                 .build();
     }
 
@@ -36,6 +38,7 @@ public class NotificationDTO {
                 .time(entity.getTime())
                 .area(entity.getArea())
                 .parkingSpot(entity.getParkingSpot())
+                .type(entity.getType())
                 .build();
     }
 

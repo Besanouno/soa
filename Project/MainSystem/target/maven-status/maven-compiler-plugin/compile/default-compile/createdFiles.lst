@@ -3,6 +3,7 @@ pl/basistam/soa/main/security/users/Role.class
 pl/basistam/soa/main/WrongParkingSpotNumberException.class
 pl/basistam/soa/main/carPark/xml/Main$1.class
 pl/basistam/soa/main/carPark/xml/Area.class
+pl/basistam/soa/main/notifications/NotificationType.class
 pl/basistam/soa/main/carPark/xml/CarParkLayout.class
 pl/basistam/soa/main/security/users/AreaEmployee.class
 pl/basistam/soa/main/carPark/Parking.class

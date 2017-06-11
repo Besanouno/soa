@@ -4,6 +4,7 @@ import pl.basistam.soa.main.carPark.CarPark;
 import pl.basistam.soa.main.carPark.Ticket;
 import pl.basistam.soa.main.jms.MessageSender;
 import pl.basistam.soa.main.notifications.NotificationDTO;
+import pl.basistam.soa.main.notifications.NotificationType;
 import pl.basistam.soa.main.util.LocalDateTimeConverter;
 
 import javax.annotation.Resource;
@@ -59,6 +60,7 @@ public class TicketsExpirationNotifier {
                 .area(carPark.getAreaForParkingSpot(parkingSpot))
                 .parkingSpot(parkingSpot)
                 .time(nextExpiringTicket.getTimeOfExpiration())
+                .type(NotificationType.TICKET_EXPIRED)
                 .build();
         messageSender.send(notificationDTO.toJson());
         carPark.expireTicket(nextExpiringTicket.getParkingSpotId(), nextExpiringTicket.getTimeOfExpiration());
