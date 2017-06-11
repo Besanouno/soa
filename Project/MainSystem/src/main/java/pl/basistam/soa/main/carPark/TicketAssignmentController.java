@@ -26,7 +26,6 @@ public class TicketAssignmentController {
 
     public boolean saveTicket(TicketDTO ticketDTO) throws WrongParkingSpotNumberException {
         Ticket ticket = ticketDTO.toEntity();
-        ticket.setArea(carPark.getAreaForParkingSpot(ticket.getParkingSpotId()));
 
         if (carPark.payForParkingSpot(ticketDTO.getParkingSpotId(), ticket)) {
             carParkDAO.saveTicket(ticket);

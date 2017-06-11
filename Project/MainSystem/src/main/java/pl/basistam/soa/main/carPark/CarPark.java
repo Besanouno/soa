@@ -50,6 +50,7 @@ public class CarPark {
 
     public boolean payForParkingSpot(int parkingSpotId, Ticket ticket) throws WrongParkingSpotNumberException {
         validate(parkingSpotId);
+        ticket.setArea(getAreaForParkingSpot(ticket.getParkingSpotId()));
         if (unpaidParkingSpots.containsKey(parkingSpotId)) {
             unpaidParkingSpots.remove(parkingSpotId);
             paidParkingSpots.put(parkingSpotId, ticket);

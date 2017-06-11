@@ -1,5 +1,7 @@
 package pl.basistam.soa.main.carPark.xml;
 
+import pl.basistam.soa.main.WrongParkingSpotNumberException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,7 +18,12 @@ public class CarParkLayout {
     }
 
     public int getAreaForParkingSpot(int parkingSpot) {
-        return carPark.get(parkingSpot);
+        if (carPark.containsKey(parkingSpot)) {
+            return carPark.get(parkingSpot);
+        }
+        else {
+            throw new RuntimeException();
+        }
     }
 
     public int getParkingSpotsNumber() {
