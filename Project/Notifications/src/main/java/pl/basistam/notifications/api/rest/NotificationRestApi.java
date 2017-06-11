@@ -10,8 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Path("/find")
-@ApplicationPath("/api")
+@Path("/api")
 public class NotificationRestApi {
     @Inject
     private NotificationDAO notificationDAO;

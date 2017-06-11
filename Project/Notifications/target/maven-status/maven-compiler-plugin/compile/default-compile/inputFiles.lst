@@ -1,4 +1,3 @@
-/home/marcin/Documents/soa/Project/Notifications/src/main/java/pl/basistam/notifications/api/rest/HelloRest.java
 /home/marcin/Documents/soa/Project/Notifications/src/main/java/pl/basistam/notifications/util/LocalDateTimeAdapter.java
 /home/marcin/Documents/soa/Project/Notifications/src/main/java/pl/basistam/notifications/NotificationDTO.java
 /home/marcin/Documents/soa/Project/Notifications/src/main/java/pl/basistam/notifications/api/rest/NotificationRestApi.java
@@ -6,3 +5,4 @@
 /home/marcin/Documents/soa/Project/Notifications/src/main/java/pl/basistam/notifications/NotificationDAO.java
 /home/marcin/Documents/soa/Project/Notifications/src/main/java/pl/basistam/notifications/NotificationListener.java
 /home/marcin/Documents/soa/Project/Notifications/src/main/java/pl/basistam/notifications/api/soap/NotificationSoapApi.java
+/home/marcin/Documents/soa/Project/Notifications/src/main/java/pl/basistam/notifications/NotificationType.java
