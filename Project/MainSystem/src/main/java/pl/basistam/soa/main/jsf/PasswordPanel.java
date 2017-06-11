@@ -2,16 +2,21 @@ package pl.basistam.soa.main.jsf;
 
 import lombok.Getter;
 import lombok.Setter;
+import pl.basistam.soa.main.security.CurrentSession;
 import pl.basistam.soa.main.security.users.UsersDAO;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 @ManagedBean
 @SessionScoped
 public class PasswordPanel {
-    private String user;
+    @Inject
+    private CurrentSession currentSession;
+
     @Getter
     @Setter
     private String oldPassword;
@@ -26,7 +31,7 @@ public class PasswordPanel {
     private UsersDAO usersDAO;
 
     public String changePassword() {
-        if (usersDAO.changePassword(user, oldPassword, newPassword)) {
+        if (usersDAO.changePassword(currentSession.getCurrentUserId(), oldPassword, newPassword)) {
             oldPassword = "";
             newPassword = "";
             passwordRepeated = "";

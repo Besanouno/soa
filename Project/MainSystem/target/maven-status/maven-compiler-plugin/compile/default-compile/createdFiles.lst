@@ -8,13 +8,16 @@ pl/basistam/soa/main/carPark/xml/CarParkLayout.class
 pl/basistam/soa/main/security/users/AreaEmployee.class
 pl/basistam/soa/main/carPark/Parking.class
 pl/basistam/soa/main/carPark/xml/Main.class
+pl/basistam/soa/main/security/CurrentSession.class
 pl/basistam/soa/main/carPark/Ticket$TicketBuilder.class
 pl/basistam/soa/main/carPark/TicketDTO$TicketDTOBuilder.class
 pl/basistam/soa/main/util/LocalDateTimeAdapter.class
+pl/basistam/soa/main/security/filters/LoginFilter.class
 pl/basistam/soa/main/security/users/User$UserBuilder.class
 pl/basistam/soa/main/webService/ParkingMeterService.class
 pl/basistam/soa/main/notifications/NotificationDTO.class
 pl/basistam/soa/main/carPark/ParkingDAO.class
+pl/basistam/soa/main/security/LoggedUsers.class
 pl/basistam/soa/main/carPark/xml/Areas.class
 pl/basistam/soa/main/carPark/Ticket.class
 pl/basistam/soa/main/carPark/UnpaidParkingSpot.class

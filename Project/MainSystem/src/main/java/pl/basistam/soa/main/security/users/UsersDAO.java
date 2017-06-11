@@ -27,7 +27,7 @@ public class UsersDAO {
 
     public boolean changePassword(String id, String oldPassword, String newPassword) {
         User user = entityManager.find(User.class, id);
-        if (user != null && !user.getPassword().equals(oldPassword)) {
+        if (user != null && user.getPassword().equals(oldPassword)) {
             user.setPassword(newPassword);
             entityManager.merge(user);
             return true;
