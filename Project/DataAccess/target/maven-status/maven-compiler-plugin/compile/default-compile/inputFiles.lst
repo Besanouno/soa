@@ -1,0 +1,5 @@
+/home/marcin/Documents/soa/Project/DataAccess/src/main/java/pl/basistam/dataAccess/api/NotificationDao.java
+/home/marcin/Documents/soa/Project/DataAccess/src/main/java/pl/basistam/dataAccess/util/LocalDateTimeAdapter.java
+/home/marcin/Documents/soa/Project/DataAccess/src/main/java/pl/basistam/dataAccess/dao/NotificationDaoImpl.java
+/home/marcin/Documents/soa/Project/DataAccess/src/main/java/pl/basistam/dataAccess/entities/Notification.java
+/home/marcin/Documents/soa/Project/DataAccess/src/main/java/pl/basistam/dataAccess/dto/NotificationDto.java

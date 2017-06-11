@@ -1,8 +1,11 @@
 package pl.basistam.notifications.api.rest;
 
-import pl.basistam.notifications.NotificationDAO;
-import pl.basistam.notifications.NotificationDTO;
+import pl.basistam.dataAccess.api.NotificationDao;
+import pl.basistam.dataAccess.dto.NotificationDto;
+import pl.basistam.notifications.DataAccessEjb;
 
+import javax.annotation.Resource;
+import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -12,12 +15,13 @@ import java.util.stream.Collectors;
 
 @Path("/api")
 public class NotificationRestApi {
-    @Inject
-    private NotificationDAO notificationDAO;
+
+    @EJB(mappedName = DataAccessEjb.JNDI)
+    private NotificationDao notificationDAO;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<NotificationDTO> getNotifications(@QueryParam("area") Integer area,
+    public List<NotificationDto> getNotifications(@QueryParam("area") Integer area,
                                                   @QueryParam("start") String start,
                                                   @QueryParam("end") String end) {
         LocalDateTime startTime = LocalDateTime.parse(start);
@@ -26,7 +30,7 @@ public class NotificationRestApi {
                 null;
         return notificationDAO.getNotifications(startTime, endTime, area)
                 .stream()
-                .map(NotificationDTO::fromEntity)
+                .map(NotificationDto::fromEntity)
                 .collect(Collectors.toList());
     }
 }

@@ -1,0 +1,7 @@
+pl/basistam/dataAccess/api/NotificationDao.class
+pl/basistam/dataAccess/dto/NotificationDto$NotificationDtoBuilder.class
+pl/basistam/dataAccess/entities/Notification$NotificationBuilder.class
+pl/basistam/dataAccess/entities/Notification.class
+pl/basistam/dataAccess/dto/NotificationDto.class
+pl/basistam/dataAccess/dao/NotificationDaoImpl.class
+pl/basistam/dataAccess/util/LocalDateTimeAdapter.class

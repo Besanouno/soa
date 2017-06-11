@@ -1,6 +1,11 @@
 package pl.basistam.notifications;
 
+import pl.basistam.dataAccess.api.NotificationDao;
+import pl.basistam.dataAccess.dto.NotificationDto;
+import pl.basistam.dataAccess.entities.Notification;
+
 import javax.ejb.ActivationConfigProperty;
+import javax.ejb.EJB;
 import javax.ejb.MessageDriven;
 import javax.inject.Inject;
 import javax.jms.JMSException;
@@ -16,13 +21,13 @@ import javax.jms.TextMessage;
                 "acknowledgeMode", propertyValue = "Auto-acknowledge")})
 public class NotificationListener implements MessageListener {
 
-    @Inject
-    private NotificationDAO notificationDAO;
+    @EJB(mappedName = DataAccessEjb.JNDI)
+    private NotificationDao notificationDAO;
 
     @Override
     public void onMessage(Message message) {
         try {
-            NotificationDTO notificationDTO = NotificationDTO.fromJson(((TextMessage) message).getText());
+            NotificationDto notificationDTO = NotificationDto.fromJson(((TextMessage) message).getText());
             System.out.println(notificationDTO.getParkingSpot());
             Notification notification = notificationDTO.toEntity();
             notificationDAO.saveNotification(notification);
