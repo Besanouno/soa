@@ -1,8 +1,8 @@
 package pl.basistam.soa.main.webService;
 
+import pl.basistam.dataAccess.dto.TicketDto;
 import pl.basistam.soa.main.WrongParkingSpotNumberException;
 import pl.basistam.soa.main.carPark.TicketAssignmentController;
-import pl.basistam.soa.main.carPark.TicketDTO;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -20,7 +20,7 @@ public class ParkingMeterService extends Application {
     @POST
     @Path("/add")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response add(TicketDTO ticket) {
+    public Response add(TicketDto ticket) {
         try {
             if (ticketAssignmentController.saveTicket(ticket)) {
                 return Response.ok().build();

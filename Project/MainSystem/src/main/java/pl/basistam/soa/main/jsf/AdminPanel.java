@@ -2,8 +2,10 @@ package pl.basistam.soa.main.jsf;
 
 import lombok.Getter;
 import lombok.Setter;
-import pl.basistam.soa.main.security.users.UsersDAO;
+import pl.basistam.dataAccess.api.UsersDao;
+import pl.basistam.soa.main.EjbBindings;
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
@@ -21,8 +23,8 @@ public class AdminPanel {
     @Setter
     private String passwordRepeated;
 
-    @Inject
-    private UsersDAO usersDAO;
+    @EJB(mappedName = EjbBindings.UsersDao_JNDI)
+    private UsersDao usersDAO;
 
     public String changePassword() {
         if (usersDAO.changePassword(user, newPassword)) {

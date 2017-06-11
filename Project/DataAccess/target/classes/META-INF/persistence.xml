@@ -2,7 +2,11 @@
     <persistence-unit name="parkomat">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:/Parkomat</jta-data-source>
-        <class>pl.basistam.notifications.Notification</class>
+        <class>pl.basistam.dataAccess.entities.Notification</class>
+        <class>pl.basistam.dataAccess.entities.Parking</class>
+        <class>pl.basistam.dataAccess.entities.Ticket</class>
+        <class>pl.basistam.dataAccess.entities.AreaEmployee</class>
+        <class>pl.basistam.dataAccess.entities.User</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>

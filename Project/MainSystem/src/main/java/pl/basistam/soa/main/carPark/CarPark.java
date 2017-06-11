@@ -1,6 +1,7 @@
 package pl.basistam.soa.main.carPark;
 
 import lombok.Getter;
+import pl.basistam.dataAccess.entities.Ticket;
 import pl.basistam.soa.main.WrongParkingSpotNumberException;
 import pl.basistam.soa.main.carPark.xml.CarParkLayout;
 

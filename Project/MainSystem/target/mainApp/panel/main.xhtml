@@ -12,14 +12,14 @@
 <h:body>
     <h:form id="carParkData">
         <h2>Nieopłacone miejsca (poniżej 120 sekund):</h2>
-    <h:panelGroup id="kurwazadzialajprosze">
+
         <h:dataTable id="unpaidSpots"
                      columnClasses="list-column-center,
         list-column-right, list-column-center,
         list-column-right" headerClass="list-header"
                      rowClasses="list-row"
                      styleClass="list-background"
-                     value="#{dashboardController.getUnpaidParkingSpots(2)}"
+                     value="#{dashboardController.getUnpaidParkingSpots(userPanel.getArea())}"
                      var="parkingSpot"
                      border="1">
             <h:column>
@@ -35,7 +35,6 @@
                 <h:outputText value="#{parkingSpot.timeOfParking}"/>
             </h:column>
         </h:dataTable>
-    </h:panelGroup>
 
         <h2>Miejsca dla których wygasła opłata bądź są nieopłacone przynajmniej 120 sekund od przyjazdu:</h2>
 
@@ -45,7 +44,7 @@
         list-column-right" headerClass="list-header"
                      rowClasses="list-row"
                      styleClass="list-background"
-                     value="#{dashboardController.getExpiredParkingSpots(2)}"
+                     value="#{dashboardController.getExpiredParkingSpots(userPanel.getArea())}"
                      var="parkingSpot"
                      border="1">
             <h:column>
@@ -71,7 +70,7 @@
         list-column-right" headerClass="list-header"
                      rowClasses="list-row"
                      styleClass="list-background"
-                     value="#{dashboardController.getPaidParkingSpots(2)}"
+                     value="#{dashboardController.getPaidParkingSpots(userPanel.getArea())}"
                      var="ticket"
                      border="1">
             <h:column>
@@ -101,7 +100,7 @@
         </h:dataTable>
     </h:form>
     <h:form>
-        <h:commandButton type="submit" action="/passwordPanel.xhtml" value="Zmień hasło"/>
+        <h:commandButton type="submit" action="/panel/passwordPanel.xhtml" value="Zmień hasło"/>
     </h:form>
 </h:body>
 </html>

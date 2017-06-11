@@ -1,7 +1,7 @@
 package pl.basistam.soa.main.jsf;
 
+import pl.basistam.dataAccess.dto.TicketDto;
 import pl.basistam.soa.main.carPark.CarPark;
-import pl.basistam.soa.main.carPark.TicketDTO;
 import pl.basistam.soa.main.carPark.UnpaidParkingSpot;
 
 import javax.faces.bean.ManagedBean;
@@ -23,12 +23,12 @@ public class DashboardController {
                 .collect(Collectors.toList());
     }
 
-    public List<TicketDTO> getPaidParkingSpots(int area) {
+    public List<TicketDto> getPaidParkingSpots(int area) {
         return carPark.getPaidParkingSpots()
                 .entrySet()
                 .stream()
                 .filter(e -> area == carPark.getAreaForParkingSpot(e.getKey()))
-                .map(e -> TicketDTO.fromEntity(e.getValue()))
+                .map(e -> TicketDto.fromEntity(e.getValue()))
                 .collect(Collectors.toList());
     }
 

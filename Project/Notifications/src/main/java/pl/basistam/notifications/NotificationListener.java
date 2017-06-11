@@ -7,7 +7,6 @@ import pl.basistam.dataAccess.entities.Notification;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.EJB;
 import javax.ejb.MessageDriven;
-import javax.inject.Inject;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
@@ -21,7 +20,7 @@ import javax.jms.TextMessage;
                 "acknowledgeMode", propertyValue = "Auto-acknowledge")})
 public class NotificationListener implements MessageListener {
 
-    @EJB(mappedName = DataAccessEjb.JNDI)
+    @EJB(mappedName = EjbBindings.NotificationDao_JNDI)
     private NotificationDao notificationDAO;
 
     @Override

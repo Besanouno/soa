@@ -1,7 +1,10 @@
 package pl.basistam.dataAccess.dto;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import lombok.*;
 import pl.basistam.dataAccess.entities.Notification;
@@ -19,6 +22,7 @@ public class NotificationDto {
     private int area;
     private int parkingSpot;
     private String type;
+    @JsonSerialize(using = ToStringSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     @Getter(AccessLevel.NONE)
@@ -49,6 +53,15 @@ public class NotificationDto {
             return objectMapper.readValue(text, NotificationDto.class);
         } catch (IOException e) {
             return NotificationDto.builder().build();
+        }
+    }
+
+    public String toJson() {
+        try {
+            return new ObjectMapper().writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            System.out.println("Error in parsing notification to json");
+            return "";
         }
     }
 }

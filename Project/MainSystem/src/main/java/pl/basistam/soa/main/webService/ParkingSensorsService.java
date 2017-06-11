@@ -1,11 +1,13 @@
 package pl.basistam.soa.main.webService;
 
+import pl.basistam.dataAccess.api.CarParkDao;
+import pl.basistam.dataAccess.entities.Parking;
+import pl.basistam.soa.main.EjbBindings;
 import pl.basistam.soa.main.WrongParkingSpotNumberException;
 import pl.basistam.soa.main.carPark.CarPark;
-import pl.basistam.soa.main.carPark.CarParkDAO;
-import pl.basistam.soa.main.carPark.Parking;
 import pl.basistam.soa.main.notificators.UnpaidParkingNotifier;
 
+import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -20,8 +22,8 @@ public class ParkingSensorsService {
     @Inject
     private UnpaidParkingNotifier unpaidParkingNotifier;
 
-    @Inject
-    private CarParkDAO carParkDAO;
+    @EJB(mappedName = EjbBindings.CarParkDao_JNDI)
+    private CarParkDao carParkDAO;
 
     @WebMethod
     public boolean takeParkingSpot(int parkingSpot) {

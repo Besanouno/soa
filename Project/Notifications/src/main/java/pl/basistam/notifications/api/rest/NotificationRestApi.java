@@ -2,11 +2,9 @@ package pl.basistam.notifications.api.rest;
 
 import pl.basistam.dataAccess.api.NotificationDao;
 import pl.basistam.dataAccess.dto.NotificationDto;
-import pl.basistam.notifications.DataAccessEjb;
+import pl.basistam.notifications.EjbBindings;
 
-import javax.annotation.Resource;
 import javax.ejb.EJB;
-import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.time.LocalDateTime;
@@ -16,7 +14,7 @@ import java.util.stream.Collectors;
 @Path("/api")
 public class NotificationRestApi {
 
-    @EJB(mappedName = DataAccessEjb.JNDI)
+    @EJB(mappedName = EjbBindings.NotificationDao_JNDI)
     private NotificationDao notificationDAO;
 
     @GET

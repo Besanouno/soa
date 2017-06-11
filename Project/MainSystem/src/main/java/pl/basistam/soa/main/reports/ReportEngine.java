@@ -4,11 +4,12 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import pl.basistam.soa.main.carPark.CarParkDAO;
-import pl.basistam.soa.main.carPark.Ticket;
+import pl.basistam.dataAccess.api.CarParkDao;
+import pl.basistam.dataAccess.entities.Ticket;
+import pl.basistam.soa.main.EjbBindings;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import java.io.ByteArrayOutputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -16,8 +17,8 @@ import java.util.List;
 
 @Stateless
 public class ReportEngine {
-    @Inject
-    private CarParkDAO carParkDAO;
+    @EJB(mappedName = EjbBindings.CarParkDao_JNDI)
+    private CarParkDao carParkDao;
 
     private final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
@@ -34,7 +35,7 @@ public class ReportEngine {
             document.add(new Paragraph(String.format("z okresu: %s - %s", beginning.format(DATE_FORMATTER), end.format(DATE_FORMATTER))));
             document.add(Chunk.NEWLINE);
 
-            List<Ticket> tickets = carParkDAO.getTicketsFromArea(area, beginning, end);
+            List<Ticket> tickets = carParkDao.getTicketsFromArea(area, beginning, end);
             PdfPTable table = new PdfPTable(3);
             PdfPCell parkingSpotHeader = new PdfPCell(new Paragraph("Numer miejsca"));
             PdfPCell purchaseDateHeader = new PdfPCell(new Paragraph("Zakup"));
