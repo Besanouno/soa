@@ -3,7 +3,6 @@ pl/basistam/soa/main/security/users/Role.class
 pl/basistam/soa/main/WrongParkingSpotNumberException.class
 pl/basistam/soa/main/carPark/xml/Main$1.class
 pl/basistam/soa/main/carPark/xml/Area.class
-pl/basistam/soa/main/carPark/ParkingSpot.class
 pl/basistam/soa/main/carPark/xml/CarParkLayout.class
 pl/basistam/soa/main/security/users/AreaEmployee.class
 pl/basistam/soa/main/carPark/Parking.class
@@ -16,7 +15,6 @@ pl/basistam/soa/main/security/filters/LoginFilter.class
 pl/basistam/soa/main/security/users/User$UserBuilder.class
 pl/basistam/soa/main/webService/ParkingMeterService.class
 pl/basistam/soa/main/notifications/NotificationDTO.class
-pl/basistam/soa/main/carPark/ParkingDAO.class
 pl/basistam/soa/main/security/LoggedUsers.class
 pl/basistam/soa/main/carPark/xml/Areas.class
 pl/basistam/soa/main/carPark/Ticket.class
@@ -27,6 +25,8 @@ pl/basistam/soa/main/jsf/AdminPanel.class
 pl/basistam/soa/main/security/users/User.class
 pl/basistam/soa/main/notificators/UnpaidParkingNotifier.class
 pl/basistam/soa/main/carPark/TicketAssignmentController.class
+pl/basistam/soa/main/carPark/CarPark.class
+pl/basistam/soa/main/carPark/CarParkDAO.class
 pl/basistam/soa/main/security/users/UsersDAO.class
 pl/basistam/soa/main/notificators/TicketsExpirationNotifier.class
 pl/basistam/soa/main/notifications/NotificationDTO$NotificationDTOBuilder.class

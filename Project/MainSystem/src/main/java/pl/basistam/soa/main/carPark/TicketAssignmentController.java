@@ -12,10 +12,10 @@ import javax.inject.Inject;
 public class TicketAssignmentController {
 
     @Inject
-    private Parking parking;
+    private CarPark carPark;
 
     @Inject
-    private ParkingDAO parkingDAO;
+    private CarParkDAO carParkDAO;
 
     @Inject
     private TicketsExpirationNotifier ticketsExpirationNotifier;
@@ -27,8 +27,8 @@ public class TicketAssignmentController {
     public void saveTicket(TicketDTO ticketDTO) throws WrongParkingSpotNumberException {
         Ticket ticket = ticketDTO.toEntity();
 
-        if (parking.payForParkingSpot(ticketDTO.getParkingSpotId(), ticket)) {
-            parkingDAO.saveTicket(ticket);
+        if (carPark.payForParkingSpot(ticketDTO.getParkingSpotId(), ticket)) {
+            carParkDAO.saveTicket(ticket);
             unpaidParkingNotifier.update();
             ticketsExpirationNotifier.update();
         }

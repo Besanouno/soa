@@ -1,6 +1,8 @@
 package pl.basistam.soa.main.webService;
 
 import pl.basistam.soa.main.WrongParkingSpotNumberException;
+import pl.basistam.soa.main.carPark.CarPark;
+import pl.basistam.soa.main.carPark.CarParkDAO;
 import pl.basistam.soa.main.carPark.Parking;
 import pl.basistam.soa.main.notificators.UnpaidParkingNotifier;
 
@@ -13,15 +15,20 @@ import java.time.LocalDateTime;
 public class ParkingSensorsService {
 
     @Inject
-    private Parking parking;
+    private CarPark carPark;
 
     @Inject
     private UnpaidParkingNotifier unpaidParkingNotifier;
 
+    @Inject
+    private CarParkDAO carParkDAO;
+
     @WebMethod
     public boolean takeParkingSpot(int parkingSpot) {
         try {
-            if (parking.takeParkingSpot(parkingSpot, LocalDateTime.now())) {
+            LocalDateTime timeOfParking = LocalDateTime.now();
+            if (carPark.takeParkingSpot(parkingSpot, timeOfParking)) {
+                carParkDAO.saveParking(new Parking(parkingSpot, timeOfParking));
                 unpaidParkingNotifier.update();
                 return true;
             }
@@ -34,7 +41,7 @@ public class ParkingSensorsService {
     @WebMethod
     public boolean releaseParkingSpot(int parkingSpot) {
         try {
-            return parking.releaseParkingSpot(parkingSpot);
+            return carPark.releaseParkingSpot(parkingSpot);
         } catch (WrongParkingSpotNumberException e) {
             return false;
         }

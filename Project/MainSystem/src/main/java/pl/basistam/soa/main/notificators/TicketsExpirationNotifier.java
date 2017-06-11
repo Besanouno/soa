@@ -1,23 +1,19 @@
 package pl.basistam.soa.main.notificators;
 
-import pl.basistam.soa.main.carPark.Parking;
+import pl.basistam.soa.main.carPark.CarPark;
 import pl.basistam.soa.main.carPark.Ticket;
-import pl.basistam.soa.main.carPark.xml.CarParkLayout;
 import pl.basistam.soa.main.jms.MessageSender;
-import pl.basistam.soa.main.jsf.DashboardController;
 import pl.basistam.soa.main.notifications.NotificationDTO;
 import pl.basistam.soa.main.util.LocalDateTimeConverter;
 
 import javax.annotation.Resource;
 import javax.ejb.*;
-import javax.faces.bean.ManagedProperty;
 import javax.inject.Inject;
-import java.time.LocalDateTime;
 
 @Singleton
 public class TicketsExpirationNotifier {
     @Inject
-    private Parking parking;
+    private CarPark carPark;
 
     @Resource
     private TimerService timerService;
@@ -33,7 +29,7 @@ public class TicketsExpirationNotifier {
     }
 
     private void findNextExpiringTicket() {
-        nextExpiringTicket = parking.getNextExpiringTicket();
+        nextExpiringTicket = carPark.getNextExpiringTicket();
         if (nextExpiringTicket != null) {
             setTimer();
         }
@@ -60,12 +56,12 @@ public class TicketsExpirationNotifier {
         int parkingSpot = nextExpiringTicket.getParkingSpotId();
 
         NotificationDTO notificationDTO = NotificationDTO.builder()
-                .area(parking.getAreaForParkingSpot(parkingSpot))
+                .area(carPark.getAreaForParkingSpot(parkingSpot))
                 .parkingSpot(parkingSpot)
                 .time(nextExpiringTicket.getTimeOfExpiration())
                 .build();
         messageSender.send(notificationDTO.toJson());
-        parking.expireTicket(nextExpiringTicket.getParkingSpotId(), nextExpiringTicket.getTimeOfExpiration());
+        carPark.expireTicket(nextExpiringTicket.getParkingSpotId(), nextExpiringTicket.getTimeOfExpiration());
         findNextExpiringTicket();
     }
 
