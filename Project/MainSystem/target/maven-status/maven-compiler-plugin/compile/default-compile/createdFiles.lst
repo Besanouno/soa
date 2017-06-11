@@ -6,6 +6,7 @@ pl/basistam/soa/main/carPark/xml/Area.class
 pl/basistam/soa/main/notifications/NotificationType.class
 pl/basistam/soa/main/carPark/xml/CarParkLayout.class
 pl/basistam/soa/main/security/users/AreaEmployee.class
+pl/basistam/soa/main/reports/ReportController.class
 pl/basistam/soa/main/carPark/Parking.class
 pl/basistam/soa/main/carPark/xml/Main.class
 pl/basistam/soa/main/security/CurrentSession.class
@@ -25,6 +26,7 @@ pl/basistam/soa/main/carPark/TicketDTO.class
 pl/basistam/soa/main/jsf/AdminPanel.class
 pl/basistam/soa/main/security/users/User.class
 pl/basistam/soa/main/notificators/UnpaidParkingNotifier.class
+pl/basistam/soa/main/reports/ReportEngine.class
 pl/basistam/soa/main/carPark/TicketAssignmentController.class
 pl/basistam/soa/main/carPark/CarPark.class
 pl/basistam/soa/main/carPark/CarParkDAO.class

@@ -24,13 +24,16 @@ public class TicketAssignmentController {
     private UnpaidParkingNotifier unpaidParkingNotifier;
 
 
-    public void saveTicket(TicketDTO ticketDTO) throws WrongParkingSpotNumberException {
+    public boolean saveTicket(TicketDTO ticketDTO) throws WrongParkingSpotNumberException {
         Ticket ticket = ticketDTO.toEntity();
+        ticket.setArea(carPark.getAreaForParkingSpot(ticket.getParkingSpotId()));
 
         if (carPark.payForParkingSpot(ticketDTO.getParkingSpotId(), ticket)) {
             carParkDAO.saveTicket(ticket);
             unpaidParkingNotifier.update();
             ticketsExpirationNotifier.update();
+            return true;
         }
+        return false;
     }
 }

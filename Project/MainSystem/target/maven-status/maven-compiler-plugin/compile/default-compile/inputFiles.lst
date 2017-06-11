@@ -15,6 +15,7 @@
 /home/marcin/Documents/soa/Project/MainSystem/src/main/java/pl/basistam/soa/main/util/LocalDateTimeAdapter.java
 /home/marcin/Documents/soa/Project/MainSystem/src/main/java/pl/basistam/soa/main/notifications/NotificationDTO.java
 /home/marcin/Documents/soa/Project/MainSystem/src/main/java/pl/basistam/soa/main/security/users/Role.java
+/home/marcin/Documents/soa/Project/MainSystem/src/main/java/pl/basistam/soa/main/reports/ReportController.java
 /home/marcin/Documents/soa/Project/MainSystem/src/main/java/pl/basistam/soa/main/notificators/TicketsExpirationNotifier.java
 /home/marcin/Documents/soa/Project/MainSystem/src/main/java/pl/basistam/soa/main/security/users/User.java
 /home/marcin/Documents/soa/Project/MainSystem/src/main/java/pl/basistam/soa/main/webService/ParkingMeterService.java
@@ -26,6 +27,7 @@
 /home/marcin/Documents/soa/Project/MainSystem/src/main/java/pl/basistam/soa/main/util/LocalDateTimeConverter.java
 /home/marcin/Documents/soa/Project/MainSystem/src/main/java/pl/basistam/soa/main/security/filters/LoginFilter.java
 /home/marcin/Documents/soa/Project/MainSystem/src/main/java/pl/basistam/soa/main/carPark/xml/Area.java
+/home/marcin/Documents/soa/Project/MainSystem/src/main/java/pl/basistam/soa/main/reports/ReportEngine.java
 /home/marcin/Documents/soa/Project/MainSystem/src/main/java/pl/basistam/soa/main/notifications/NotificationType.java
 /home/marcin/Documents/soa/Project/MainSystem/src/main/java/pl/basistam/soa/main/carPark/xml/Areas.java
 /home/marcin/Documents/soa/Project/MainSystem/src/main/java/pl/basistam/soa/main/carPark/xml/AreasReader.java

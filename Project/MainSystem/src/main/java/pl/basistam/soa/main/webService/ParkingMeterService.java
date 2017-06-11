@@ -22,10 +22,13 @@ public class ParkingMeterService extends Application {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response add(TicketDTO ticket) {
         try {
-            ticketAssignmentController.saveTicket(ticket);
+            if (ticketAssignmentController.saveTicket(ticket)) {
+                return Response.ok().build();
+            } else {
+                return Response.status(Response.Status.BAD_REQUEST).build();
+            }
         } catch (WrongParkingSpotNumberException e) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
-        return Response.ok().build();
     }
 }

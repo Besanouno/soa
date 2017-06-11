@@ -18,7 +18,8 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private int parkingSpotId;
+    private Integer parkingSpotId;
+    private Integer area;
     private Long parkingMeterId;
     private LocalDateTime timeOfPurchase;
     private LocalDateTime timeOfExpiration;
